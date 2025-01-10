@@ -16,13 +16,19 @@ const SideBar = () => {
 
       <h1 className="text-white font-medium text-lg py-5">New Feeds</h1>
       <nav className="text-zinc-300 flex text-lg flex-col">
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link
+          to="/trending"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 "
+        >
           <i className="ri-fire-fill"></i> Trending
         </Link>
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link to="/popular" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+          <i className="ri-bard-fill"></i> Popular
+        </Link>
+        <Link to="/movies" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-movie-2-fill"></i> Movies
         </Link>
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+        <Link to="/tv" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
           <i className="ri-tv-fill"></i> TV Shows
         </Link>
         <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
@@ -30,9 +36,6 @@ const SideBar = () => {
         </Link>
         <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-fire-fill"></i> Documentaries
-        </Link>
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
-          <i className="ri-bard-fill"></i> Popular
         </Link>
         <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
           <i className="ri-team-fill "></i> Peoples

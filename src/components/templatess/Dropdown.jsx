@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ options, onselect }) => {
+const Dropdown = ({ options, onselect, title  }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
   const [selectedOption, setSelectedOption] = useState(null); // State to store the selected option
 
@@ -23,12 +23,16 @@ const Dropdown = ({ options, onselect }) => {
     <div className="relative w-64">
       <button
         onClick={toggleDropdown}
-        className=" px-6 w-32 py-1 mt-2 text-left text-white bg-transparent border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="px-6 max-w-40 py-1 mt-2 text-left text-white bg-transparent border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        {selectedOption || (
+        {selectedOption ? (
+          selectedOption.replace(/_/g, " ").toUpperCase()
+        ) : (
           <div className="flex items-start justify-between">
-            <h2 >Filter</h2>
-            <i className="ri-arrow-down-s-fill ml-10"></i>
+            <h2>
+              {title}
+              <i className="ri-arrow-down-s-fill ml-4"></i>
+            </h2>
           </div>
         )}
       </button>

@@ -5,6 +5,8 @@ import Header from "./templatess/Header";
 import axios from "../utils/axios";
 import HorizontalContent from "./templatess/HorizontalContent";
 import Dropdown from "./templatess/Dropdown";
+import Loading from "./Loading";
+
 const Home = () => {
   // document.title = "ixsn Movies";
 
@@ -63,6 +65,7 @@ const Home = () => {
               Trending
             </h1>
             <Dropdown
+            title={"Filter"}
               onselect={handleCategoryChange}
               options={["tv", "movie", "all"]}
               // func={(e) => setCategory(e.target.value)}
@@ -73,7 +76,7 @@ const Home = () => {
       </div>
     </div>
   ) : (
-    <h1 className="text-white font-semibold text-4xl flex justify-center mx-auto items-center">Loading...</h1>
+    <Loading />
   );
 };
 
