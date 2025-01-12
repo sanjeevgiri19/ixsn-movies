@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
 import TopNav from "./templatess/TopNav";
-import Dropdown from "./templatess/Dropdown";
+// import Dropdown from "./templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
 import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Tv = () => {
+const Peoples = () => {
   const navigate = useNavigate();
-  const [category, setcategory] = useState("popular");
-  // const [duration, setduration] = useState("day");
-  const [tv, setTv] = useState([]);
+  const [person, setPerson] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | TV";
+  document.title = "ixsn | Peoples";
 
-  const getTv = async () => {
+  const getPerson = async () => {
     try {
-      const { data } = await axios.get(`/tv/${category}?page=${page}`);
+      const { data } = await axios.get(`/person/popular`);
+console.log(data);
 
-      // setTrending(data.results);
+      // setPerson(data.results);
       if (data.results.length > 0) {
-        setTv((prev) => [...prev, ...data.results]);
+        setPerson((prev) => [...prev, ...data.results]);
         setpage(page + 1);
       } else {
         sethasMore(false);
@@ -31,26 +30,24 @@ const Tv = () => {
       console.log("Error", error);
     }
   };
-  console.log(tv);
+  console.log(person);
 
-  const handleCategoryChange = (selectedCategory) => {
-    setcategory(selectedCategory); // Update the category state
-  };
 
-  const refreshTv = () => {
-    if (tv.length === 0) {
-      getTv();
+
+  const refreshPerson = () => {
+    if (person.length === 0) {
+      getPerson();
     } else {
-      setTv([]);
+      setPerson([]);
       setpage(1);
-      getTv();
-      // sethasMore(true);
+      getPerson();
+     
     }
   };
 
   useEffect(() => {
-    refreshTv();
-  }, [category]);
+    refreshPerson();
+  }, []);
 
   return (
     <div className="h-full w-full ">
@@ -60,32 +57,26 @@ const Tv = () => {
           className="w-[20%] cursor-pointer text-zinc-200 p-5 font-semibold text-xl "
         >
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
-          TV
-          <span className="text-sm ml-2">({category.replace(/_/g, " ").toUpperCase()})</span>
+          Person
+          
         </h1>
         <TopNav />
-        <div className="flex w-[22%] pr-2">
-          <Dropdown
-            title={"Category"}
-            onselect={handleCategoryChange}
-            options={["airing_today", "top_rated", "on_the_air", "popular"]}
-          />
-        </div>
+      
       </div>
 
       <div className="w-full">
         <InfiniteScroll
-          dataLength={tv.length}
-          next={getTv}
+          dataLength={person.length}
+          next={getPerson}
           loader={<h1>Loading......</h1>}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={tv} title="tv" />
+          <Cards data={person} title="person"  />
         </InfiniteScroll>
       </div>
     </div>
   );
 };
 
-export default Tv;
+export default Peoples;

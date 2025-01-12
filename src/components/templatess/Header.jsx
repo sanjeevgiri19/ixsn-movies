@@ -34,7 +34,7 @@ const Header = ({ data }) => {
           ) : (
             <>
               {data.overview.slice(0, 150)}...{" "}
-              <Link className="text-blue-400 hover:text-blue-500">more</Link>
+              <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400 hover:text-blue-500">more</Link>
             </>
           )}
         </p>

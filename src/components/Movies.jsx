@@ -83,7 +83,7 @@ const Movies = () => {
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={movie} title={category} />
+          <Cards data={movie} title="movie"/>
         </InfiniteScroll>
       </div>
     </div>

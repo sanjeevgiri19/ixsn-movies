@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
 const HorizontalContent = ({ data, func }) => {
+
+      console.log(data);
+
   return (
-    <div className="h-[86%] overflow-x-auto  px-3 py-1 mx-12 flex gap-2">
+    
+    <div className="h-[86%] overflow-x-auto 
+     px-3 py-1 mx-12 flex gap-2">
+      
       {data.map((d, id) => (
-        <div
+        <Link to={`/${d.media_type}/details/${d.id}`}
           key={id}
           className=" text-white min-w-[180px] bg-zinc-800/70 rounded shadow-md flex flex-col items-center overflow-hidden"
         >
@@ -38,7 +44,7 @@ const HorizontalContent = ({ data, func }) => {
               )}
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

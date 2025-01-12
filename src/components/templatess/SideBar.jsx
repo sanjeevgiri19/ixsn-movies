@@ -31,13 +31,13 @@ const SideBar = () => {
         <Link to="/tv" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
           <i className="ri-tv-fill"></i> TV Shows
         </Link>
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        {/* <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-fire-fill"></i> Kids
         </Link>
         <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-fire-fill"></i> Documentaries
-        </Link>
-        <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+        </Link> */}
+        <Link to="/person" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
           <i className="ri-team-fill "></i> Peoples
         </Link>
       </nav>

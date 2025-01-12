@@ -21,19 +21,21 @@ const Trending = () => {
         `/trending/${category}/${duration}?page=${page}`
       );
 
-      // setTrending(data.results);
+      
       if (data.results.length > 0) {
         setTrending((prev) => [...prev, ...data.results]);
         setpage(page + 1);
       } else {
         sethasMore(false);
       }
-      // console.log(data);
+      console.log(data.results);
     } catch (error) {
       console.log("Error", error);
     }
   };
-  console.log(trending);
+  // console.log(trending.results.media_type);
+
+  
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
