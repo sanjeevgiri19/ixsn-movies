@@ -42,10 +42,19 @@ const Header = ({ data }) => {
           <h2 className="">{data.release_date || "No Info"}</h2>
           <h3>{data.media_type.toUpperCase()}</h3>
         </div>
-      <Link className="text-white rounded  bg-[#6556CD] px-3 py-2 ">Watch Trailer</Link>
+    <Link to={`/${data.media_type}/details/${data.id}/trailer`} className="text-white rounded  bg-[#6556CD] px-3 py-2 ">Watch Trailer</Link>
       </div>
     </div>
   );
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+//  to={`/movies/details/${data.id}/trailer` }
