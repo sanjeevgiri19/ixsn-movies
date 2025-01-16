@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "./templatess/sideBar";
+import SideBar from "./templatess/SideBar";
 import TopNav from "./templatess/TopNav";
 import Header from "./templatess/Header";
 import axios from "../utils/axios";
