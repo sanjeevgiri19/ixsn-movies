@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadperson, removeperson } from "../store/actions/peopleActions";
+import Loading from "../Loading";
 
 const PersonDetails = () => {
   const { info } = useSelector((state) => state.person);
@@ -20,21 +21,19 @@ const PersonDetails = () => {
 
   if (!info) {
     return (
-      <div className="flex items-center justify-center h-screen text-2xl">
-        Loading...
-      </div>
+     <Loading />
     );
   }
 
   const { detail, images, tvCredits, movieCredits } = info;
 
-  return info?  (
+  return info ? (
     <div className="min-h-screen bg-gray-50 text-gray-900 p-8">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-12">
         {/* Profile Image */}
         <img
-          className="w-48 h-48 rounded-full object-cover shadow-lg"
+          className="w-56 h-52 rounded object-cover shadow-lg"
           src={`https://image.tmdb.org/t/p/original/${detail.profile_path}`}
           alt={detail.name}
         />
@@ -54,12 +53,12 @@ const PersonDetails = () => {
               </h2>
               <p className="text-gray-700">{detail.place_of_birth}</p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
+            {/* <div className="bg-white p-4 rounded-lg shadow-md">
               <h2 className="text-lg font-semibold text-blue-600">
                 Gender
               </h2>
               <p className="text-gray-700">{detail.gender}</p>
-            </div>
+            </div> */}
             <div className="bg-white p-4 rounded-lg shadow-md">
               <h2 className="text-lg font-semibold text-blue-600">Known For</h2>
               <p className="text-gray-700">{detail.known_for_department}</p>
@@ -124,17 +123,21 @@ const PersonDetails = () => {
       {/* TV Credits Section */}
       {info.tvCredits?.cast?.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-blue-500 mb-4">TV Credits</h2>
+          <h2 className="text-xl font-semibold text-blue-500 mb-4">
+            TV Credits
+          </h2>
           <div className="flex overflow-x-scroll gap-4">
             {info.tvCredits.cast.map((c, i) => (
-              <div key={i} className="flex-shrink-0 w-40">
+              <Link to={`/tv/details/${c.id}`} key={i} className="flex-shrink-0 w-40">
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path || c.profile_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${
+                    c.poster_path || c.backdrop_path || c.profile_path
+                  }`}
                   alt={c.name}
                   className="w-full h-60 rounded-lg shadow-md"
                 />
                 <h3 className="text-sm mt-2">{c.name}</h3>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -143,27 +146,33 @@ const PersonDetails = () => {
       {/* Movie Credits Section */}
       {info.movieCredits?.cast?.length > 0 && (
         <div>
-          <h2 className="text-xl font-semibold text-blue-500 mb-4">Movie Credits</h2>
+          <h2 className="text-xl font-semibold text-blue-500 mb-4">
+            Movie Credits
+          </h2>
           <div className="flex overflow-x-scroll gap-4">
             {info.movieCredits.cast.map((c, i) => (
-              <div key={i} className="flex-shrink-0 w-40">
+              <Link
+                to={`/movie/details/${c.id}`}
+                key={i}
+                className="flex-shrink-0 w-40"
+              >
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.profile_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${
+                    c.poster_path || c.profile_path
+                  }`}
                   alt={c.title}
                   className="w-full h-60 rounded-lg shadow-md"
                 />
                 <h3 className="text-sm mt-2 font-semibold">{c.title}</h3>
                 <p className="text-xs text-gray-600">{c.character}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       )}
     </div>
   ) : (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-gray-500 text-xl">Loading...</h1>
-    </div>
+    <Loading />
   );
 };
 

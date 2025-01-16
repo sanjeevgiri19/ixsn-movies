@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncloadtv, removetv } from "../store/actions/tvActions";
 import HorizontalContent from "../templatess/HorizontalContent";
 import Trailer from "../Trailer";
+import Loading from "../Loading";
 
 const TvDetails = () => {
   // const { info } = useSelector((state) => state.tv);
@@ -187,7 +188,7 @@ const TvDetails = () => {
       <Outlet />
     </div>
   ) : (
-    <div>Loading...</div>
+    <Loading />
   );
 };
 

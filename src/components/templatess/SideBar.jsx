@@ -49,6 +49,9 @@ const SideBar = () => {
         <Link to="/about" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-information-fill"></i> About
         </Link>
+        <Link to="/canvas" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+          <i className="ri-information-fill"></i> Canvas
+        </Link>
         <Link to="/contact" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-phone-fill"></i> Contact
         </Link>

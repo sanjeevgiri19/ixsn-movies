@@ -13,6 +13,8 @@ import Trailer from "./components/Trailer";
 import NotFound from "./components/NotFound";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
+import SketchCanvas from "./components/things/sketchCanvas";
+// import SketchCanvas from "./components/things/SketchCanvas"
 
 const App = () => {
   return (
@@ -38,8 +40,9 @@ const App = () => {
         <Route path="/person" element={<Peoples />} />
         <Route path="/person/details/:id" element={<PersonDetails />} />
 
-        <Route path="/about"  element={<AboutPage />}/>
-        <Route path="/contact"  element={<ContactPage />}/>
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/canvas" element={<SketchCanvas />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

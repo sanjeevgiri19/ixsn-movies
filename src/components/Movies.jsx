@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loading from "./Loading";
 
 const Movies = () => {
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ const Movies = () => {
         <InfiniteScroll
           dataLength={movie.length}
           next={getMovies}
-          loader={<h1>Loading......</h1>}
+          loader={<Loading />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

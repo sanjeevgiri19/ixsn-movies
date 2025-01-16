@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loading from "./Loading";
 
 const Trending = () => {
   const navigate = useNavigate();
-  const [category, setcategory] = useState("all");
+  const [category, setcategory] = useState("movie");
   const [duration, setduration] = useState("day");
   const [trending, setTrending] = useState([]);
   const [page, setpage] = useState(1);
@@ -74,7 +75,7 @@ const Trending = () => {
           <Dropdown
             title={"Category"}
             onselect={handleCategoryChange}
-            options={["tv", "movie", "all"]}
+            options={["all", "movie", "tv"]}
           />
           <Dropdown
             title={"Duration"}
@@ -88,7 +89,7 @@ const Trending = () => {
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}
-          loader={<h1>Loading......</h1>}
+          loader={<Loading />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

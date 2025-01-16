@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
 import HorizontalContent from "../templatess/HorizontalContent";
 import Trailer from "../Trailer";
+import Loading from "../Loading";
 
 const MovieDetails = () => {
   // const { info } = useSelector((state) => state.movie);
@@ -157,7 +158,7 @@ const MovieDetails = () => {
       <Outlet />
     </div>
   ) : (
-    <div>Loading...</div>
+    <Loading />
   );
 };
 

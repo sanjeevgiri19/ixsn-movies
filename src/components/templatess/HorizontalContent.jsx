@@ -48,7 +48,7 @@ const HorizontalContent = ({ data, func }) => {
 
             <div className="flex items-start mt-2 justify-between">
               <p className="tracking-tight leading-tight text-zinc-300  text-lg font-semibold ">
-                {(d.release_date || d.first_air_date).split("-")[0]}
+                {(d.release_date || d.first_air_date)}
               </p>
               <p className="tracking-tight leading-tight text-zinc-400 ">
                 {d.vote_average && (
