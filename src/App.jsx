@@ -13,7 +13,7 @@ import Trailer from "./components/Trailer";
 import NotFound from "./components/NotFound";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
-import SketchCanvas from "./components/things/sketchCanvas";
+import SketchCanvas from "./components/things/SketchCanvas";
 // import SketchCanvas from "./components/things/SketchCanvas"
 
 const App = () => {
