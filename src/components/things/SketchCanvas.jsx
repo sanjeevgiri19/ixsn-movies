@@ -1,8 +1,8 @@
-
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { ReactSketchCanvas } from "react-sketch-canvas";
+// import { ReactSketchCanvas } from "react-sketch-canvas";
+import {ReactSketchCanvas}  from "react-sketch-canvas"
 
 const SketchCanvas = () => {
   const canvasRef = useRef();
@@ -59,8 +59,13 @@ const SketchCanvas = () => {
 
   return (
     <div className=" flex relative flex-col justify-center items-center py-20 ">
-      <h1 className="text-xl font-semibold text-zinc-400">Draw your Imagination</h1>
-      <h1 className="text-lg font-semibold text-zinc-500">Try to potrait your favourite actors, characters, scene or anything from your fav. movie</h1>
+      <h1 className="text-xl font-semibold text-zinc-400">
+        Draw your Imagination
+      </h1>
+      <h1 className="text-lg font-semibold text-zinc-500">
+        Try to potrait your favourite actors, characters, scene or anything from
+        your fav. movie
+      </h1>
       <ReactSketchCanvas
         style={{
           border: "2px solid gray",
@@ -149,6 +154,3 @@ const SketchCanvas = () => {
 };
 
 export default SketchCanvas;
-
-
-

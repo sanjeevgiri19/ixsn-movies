@@ -22,13 +22,22 @@ const SideBar = () => {
         >
           <i className="ri-fire-fill"></i> Trending
         </Link>
-        <Link to="/popular" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+        <Link
+          to="/popular"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  "
+        >
           <i className="ri-bard-fill"></i> Popular
         </Link>
-        <Link to="/movies" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link
+          to="/movies"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 "
+        >
           <i className="ri-movie-2-fill"></i> Movies
         </Link>
-        <Link to="/tv" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+        <Link
+          to="/tv"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  "
+        >
           <i className="ri-tv-fill"></i> TV Shows
         </Link>
         {/* <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
@@ -37,7 +46,10 @@ const SideBar = () => {
         <Link className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
           <i className="ri-fire-fill"></i> Documentaries
         </Link> */}
-        <Link to="/person" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  ">
+        <Link
+          to="/person"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300  "
+        >
           <i className="ri-team-fill "></i> Peoples
         </Link>
       </nav>
@@ -46,13 +58,22 @@ const SideBar = () => {
         Website Information
       </h1>
       <nav className="flex flex-col text-white text-lg">
-        <Link to="/about" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link
+          to="/about"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 "
+        >
           <i className="ri-information-fill"></i> About
         </Link>
-        <Link to="/canvas" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link
+          to="/canvas"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 "
+        >
           <i className="ri-information-fill"></i> Canvas
         </Link>
-        <Link to="/contact" className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 ">
+        <Link
+          to="/contact"
+          className="hover:bg-[#6556CD] p-2 hover:text-white rounded-lg py-3 duration-300 "
+        >
           <i className="ri-phone-fill"></i> Contact
         </Link>
       </nav>
