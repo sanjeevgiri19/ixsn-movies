@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 // import { ReactSketchCanvas } from "react-sketch-canvas";
 import {ReactSketchCanvas}  from "react-sketch-canvas"
 
@@ -28,7 +29,7 @@ const SketchCanvas = () => {
 
   const handleExport = async (format) => {
     const data = await canvasRef?.current.exportImage(format);
-    console.log(data);
+    // console.log(data);
 
     // Create a download link
     const link = document.createElement("a");
@@ -58,96 +59,104 @@ const SketchCanvas = () => {
   // stroke color, stroke width, canvas color change
 
   return (
-    <div className=" flex relative flex-col justify-center items-center py-20 ">
-      <h1 className="text-xl font-semibold text-zinc-400">
-        Draw your Imagination
-      </h1>
-      <h1 className="text-lg font-semibold text-zinc-500">
-        Try to potrait your favourite actors, characters, scene or anything from
-        your fav. movie
-      </h1>
-      <ReactSketchCanvas
-        style={{
-          border: "2px solid gray",
-          borderRadius: "0.2rem",
-        }}
-        ref={canvasRef}
-        width="80vw"
-        height="70vh"
-        strokeColor={eraserMode ? canvasColor : strokeColor}
-        strokeWidth={strokeWidth}
-        canvasColor={canvasColor}
-        eraserWidth={6}
-        withErase={eraserMode}
-      />
-      <div className="flex absolute left-40 bottom-10 gap-5 ">
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={handleUndo}
+    <div className="p-10">
+        <Link
+          to="/"
+          className="font-white my-10 font-semibold text-xl px-3 py-1 text-zinc-400 rounded  border-2  border-zinc-500"
         >
-          Undo
-        </button>
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={handleRedo}
-        >
-          Redo
-        </button>
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={clearCanvas}
-        >
-          Clear
-        </button>
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={resetCanvas}
-        >
-          Reset
-        </button>
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={() => handleExport("png")}
-        >
-          Export
-        </button>
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={() => handleExport("jpeg")}
-        >
-          Export
-        </button>
-
-        <input
-          type="color"
-          value={strokeColor}
-          onChange={handleStrokeColor}
-          className="border border-zinc-700 rounded w-16"
+          Back
+        </Link>
+      <div className=" flex relative flex-col justify-center items-center  ">
+        <h1 className="text-xl font-semibold text-zinc-400">
+          Draw your Imagination
+        </h1>
+        <h1 className="text-lg font-semibold text-zinc-500">
+          Try to potrait your favourite actors, characters, scene or anything
+          from your fav. movie
+        </h1>
+        <ReactSketchCanvas
+          style={{
+            border: "2px solid gray",
+            borderRadius: "0.2rem",
+          }}
+          ref={canvasRef}
+          width="80vw"
+          height="70vh"
+          strokeColor={eraserMode ? canvasColor : strokeColor}
+          strokeWidth={strokeWidth}
+          canvasColor={canvasColor}
+          eraserWidth={6}
+          withErase={eraserMode}
         />
+        <div className="flex absolute left-40 bottom-10 gap-5 ">
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={handleUndo}
+          >
+            Undo
+          </button>
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={handleRedo}
+          >
+            Redo
+          </button>
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={clearCanvas}
+          >
+            Clear
+          </button>
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={resetCanvas}
+          >
+            Reset
+          </button>
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={() => handleExport("png")}
+          >
+            Export
+          </button>
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={() => handleExport("jpeg")}
+          >
+            Export
+          </button>
 
-        <input
-          type="number"
-          min="1"
-          max="50"
-          value={strokeWidth}
-          onChange={handleStrokeWidth}
-          className="outline-none text-xl  w-16 rounded"
-        />
+          <input
+            type="color"
+            value={strokeColor}
+            onChange={handleStrokeColor}
+            className="border border-zinc-700 rounded w-16"
+          />
 
-        <input
-          type="color"
-          value={canvasColor}
-          onChange={handleCanvasColor}
-          className="outline-none w-16 rounded"
-        />
-        {/* stroke color, stroke width, canvas color */}
+          <input
+            type="number"
+            min="1"
+            max="50"
+            value={strokeWidth}
+            onChange={handleStrokeWidth}
+            className="outline-none text-xl  w-16 rounded"
+          />
 
-        <button
-          className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
-          onClick={toggleEraserButon}
-        >
-          {eraserMode ? "Draw" : "Eraser"}
-        </button>
+          <input
+            type="color"
+            value={canvasColor}
+            onChange={handleCanvasColor}
+            className="outline-none w-16 rounded"
+          />
+          {/* stroke color, stroke width, canvas color */}
+
+          <button
+            className=" border border-zinc-700 px-3 py-1 rounded-md text-zinc-500 font-semibold text-[17px]"
+            onClick={toggleEraserButon}
+          >
+            {eraserMode ? "Draw" : "Eraser"}
+          </button>
+        </div>
       </div>
     </div>
   );

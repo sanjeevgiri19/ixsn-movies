@@ -29,7 +29,7 @@ const Trending = () => {
       } else {
         sethasMore(false);
       }
-      console.log(data.results);
+      // console.log(data.results);
     } catch (error) {
       console.log("Error", error);
     }

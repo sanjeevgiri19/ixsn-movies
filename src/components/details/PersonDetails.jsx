@@ -6,7 +6,7 @@ import Loading from "../Loading";
 
 const PersonDetails = () => {
   const { info } = useSelector((state) => state.person);
-  console.log(info);
+  // console.log(info);
   
   const navigate = useNavigate();
   const { id } = useParams();

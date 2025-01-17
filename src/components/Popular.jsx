@@ -34,7 +34,7 @@ const Popular = () => {
       console.log("Error", error);
     }
   };
-  console.log(popular);
+  // console.log(popular);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state

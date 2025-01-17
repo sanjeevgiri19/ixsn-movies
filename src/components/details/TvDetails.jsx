@@ -10,7 +10,7 @@ const TvDetails = () => {
   // const { info } = useSelector((state) => state.tv);
   const { info } = useSelector((state) => state.tv);
   // console.log(info.detail.title);
-  console.log(info);
+  // console.log(info);
 
   //  const { detail, recommendations, similar, videos } = info;
   //  console.log(info.detail);
@@ -20,7 +20,7 @@ const TvDetails = () => {
   // const {pathname} = useParams()
   const pathname = location.pathname;
 
-  console.log(pathname);
+  // console.log(pathname);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -148,7 +148,10 @@ const TvDetails = () => {
 
       <div className="flex gap-4 overflow-x-auto">
         {info.detail.seasons.map((d, id) => (
-          <div className=" text-white min-w-[240px] bg-zinc-800/1  shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] rounded overflow-hidden">
+          <div
+            key={id}
+            className=" text-white min-w-[240px] bg-zinc-800/1  shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] rounded overflow-hidden"
+          >
             <img
               key={id}
               title={d.title || d.original_name || d.original_title || d.name}
@@ -159,16 +162,15 @@ const TvDetails = () => {
               alt={d.title || d.name || "Movie"}
             />
             <div className="px-1 w-full">
-                 <h1 className="text-lg font-medium text-center leading-5  mr-5  mb-1 text-white">
-                   {(d.name || d.title || d.original_name || d.original_title)
-                     .length > 22 ? (
-                     <h2>{(d.title || d.name).slice(0, 22)}...</h2>
-                   ) : (
-                     d.title || d.name
-                   )}
-                 </h1>
-               
-               </div>
+              <h1 className="text-lg font-medium text-center leading-5  mr-5  mb-1 text-white">
+                {(d.name || d.title || d.original_name || d.original_title)
+                  .length > 22 ? (
+                  <h2>{(d.title || d.name).slice(0, 22)}...</h2>
+                ) : (
+                  d.title || d.name
+                )}
+              </h1>
+            </div>
           </div>
         ))}
       </div>

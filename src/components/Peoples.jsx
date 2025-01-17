@@ -17,7 +17,7 @@ const Peoples = () => {
   const getPerson = async () => {
     try {
       const { data } = await axios.get(`/person/popular`);
-console.log(data);
+// console.log(data);
 
       // setPerson(data.results);
       if (data.results.length > 0) {
@@ -31,7 +31,7 @@ console.log(data);
       console.log("Error", error);
     }
   };
-  console.log(person);
+  // console.log(person);
 
 
 

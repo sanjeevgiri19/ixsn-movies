@@ -10,7 +10,7 @@ const MovieDetails = () => {
   // const { info } = useSelector((state) => state.movie);
   const { info } = useSelector((state) => state.movie);
   // console.log(info.detail.title);
-  console.log(info);
+  // console.log(info);
 
   //  const { detail, recommendations, similar, videos } = info;
   //  console.log(info.detail);
@@ -20,7 +20,7 @@ const MovieDetails = () => {
   // const {pathname} = useParams()
   const pathname = location.pathname;
 
-  console.log(pathname);
+  // console.log(pathname);
 
   const navigate = useNavigate();
   const { id } = useParams();

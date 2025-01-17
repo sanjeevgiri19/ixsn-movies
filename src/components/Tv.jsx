@@ -32,7 +32,7 @@ const Tv = () => {
       console.log("Error", error);
     }
   };
-  console.log(tv);
+  // console.log(tv);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
