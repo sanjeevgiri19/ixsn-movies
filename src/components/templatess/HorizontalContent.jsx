@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
-const HorizontalContent = ({ data, func }) => {
+const HorizontalContent = ({ data }) => {
   // console.log(data);
 
   return (
@@ -25,14 +25,14 @@ const HorizontalContent = ({ data, func }) => {
             alt={d.title || d.name || "Movie"}
           />
           <div className="px-1 w-full">
-            <h1 className="text-lg font-medium leading-5  mr-5  mb-1 text-white">
+            <div className="text-lg font-medium leading-5  mr-5  mb-1 text-white">
               {(d.name || d.title || d.original_name || d.original_title)
                 .length > 22 ? (
                 <h2>{(d.title || d.name).slice(0, 22)}...</h2>
               ) : (
                 d.title || d.name
               )}
-            </h1>
+            </div>
             {/* <p className="tracking-tight leading-tight text-zinc-400  text-sm ">
               {d.overview.length < 83 ? (
                 d.overview
@@ -47,10 +47,10 @@ const HorizontalContent = ({ data, func }) => {
             </p> */}
 
             <div className="flex items-start mt-2 justify-between">
-              <p className="tracking-tight leading-tight text-zinc-300  text-lg font-semibold ">
+              <h1 className="tracking-tight leading-tight text-zinc-300  text-lg font-semibold ">
                 {(d.release_date || d.first_air_date)}
-              </p>
-              <p className="tracking-tight leading-tight text-zinc-400 ">
+              </h1>
+              <h1 className="tracking-tight leading-tight text-zinc-400 ">
                 {d.vote_average && (
                   <div className="bg-[#3a336b] font-medium px-4 py-1  flex justify-center items-center">
                     <i className="ri-star-fill mr-1 text-[#E1D63B]"></i>{" "}
@@ -58,7 +58,7 @@ const HorizontalContent = ({ data, func }) => {
                     {/* <sup className="mt-[14px] ml-[2px] text-md">%</sup> */}
                   </div>
                 )}
-              </p>
+              </h1>
             </div>
           </div>
         </Link>
