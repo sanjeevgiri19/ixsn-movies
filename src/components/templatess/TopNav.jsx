@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import { Link } from "react-router-dom";
-import noimage from "/noimage.jpg"
+import noimage from "/noimage.jpg";
 
 const TopNav = () => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(""); //`query` stores the text entered in the search input.
   // console.log(query);
   const [searches, setSearches] = useState([]);
 
+  // Fetches search results from the API based on the query and updates `searches` state with the results.
   const GetSearches = async () => {
     try {
       const { data } = await axios.get(`/search/multi?query=${query}`);
@@ -25,6 +26,7 @@ const TopNav = () => {
   return (
     <div className="text-white flex relative w-[80%] h-[10vh] items-center justify-start ml-36 p-8">
       <i className="ri-search-line mr-3 text-xl"></i>
+      {/* Search Icon and Input Field */}
       <input
         value={query}
         onChange={(e) => {
@@ -34,16 +36,18 @@ const TopNav = () => {
         type="text"
         placeholder="Search Movies"
       />
+
+      {/* clear icon  */}
       {query.length > 0 && (
         <i
           onClick={() => setQuery("")}
           className="ri-close-line text-2xl cursor-pointer ml-3 "
         ></i>
       )}
-
       <div className="bg-zinc-700/70 z-50 absolute max-h-[48vh] top-[85%] overflow-auto  rounded-md w-[47%] ml-9">
         {searches.map((s, idx) => (
-          <Link to={`/${s.media_type}/details/${s.id}`}
+          <Link
+            to={`/${s.media_type}/details/${s.id}`}
             className="p-3 flex justify-start items-center border-b-2 border-zinc-200 w-[100%] font-semibold hover:text-zinc-300 text-lg hover:bg-zinc-600/70 duration-300"
             key={idx}
           >
