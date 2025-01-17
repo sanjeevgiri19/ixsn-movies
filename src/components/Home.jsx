@@ -10,7 +10,7 @@ import Loading from "./Loading";
 const Home = () => {
   // document.title = "ixsn Movies";
 
-  const [wallpaper, setWallpaper] = useState("");
+  const [wallpaper, setWallpaper] = useState(null);
   const [content, setContent] = useState(null);
   const [category, setCategory] = useState("all");
 
