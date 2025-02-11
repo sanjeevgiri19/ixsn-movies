@@ -12,17 +12,26 @@ const Peoples = () => {
   const [person, setPerson] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | Peoples";
+  // document.title = "ixsn | Peoples";   yo sidhai lekhyo vane re-rendering cause garna sakcha 
+  useEffect(() => {
+    document.title = "ixsn | Peoples";
+  }, []);
 
   const getPerson = async () => {
     try {
-      const { data } = await axios.get(`/person/popular`);
-// console.log(data);
+      const { data } = await axios.get(`/person/popular?page=${page}`);
+      console.log(data);
 
       // setPerson(data.results);
       if (data.results.length > 0) {
-        setPerson((prev) => [...prev, ...data.results]);
-        setpage(page + 1);
+        // setPerson((prev) => [...prev, ...data.results]);   //yedi api response ma duplicate entry xa vane add huncha due to pagination, which could lead to duplicate items 
+        setPerson((prev) => {
+          const newResults = data.results.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newResults];
+        });
+        setpage((prev) => prev + 1);
       } else {
         sethasMore(false);
       }
@@ -33,8 +42,6 @@ const Peoples = () => {
   };
   // console.log(person);
 
-
-
   const refreshPerson = () => {
     if (person.length === 0) {
       getPerson();
@@ -42,7 +49,7 @@ const Peoples = () => {
       setPerson([]);
       setpage(1);
       getPerson();
-     
+      sethasMore(true);
     }
   };
 
@@ -59,10 +66,8 @@ const Peoples = () => {
         >
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Person
-          
         </h1>
         <TopNav />
-      
       </div>
 
       <div className="w-full">
@@ -73,7 +78,7 @@ const Peoples = () => {
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={person} title="person"  />
+          <Cards data={person} title="person" />
         </InfiniteScroll>
       </div>
     </div>

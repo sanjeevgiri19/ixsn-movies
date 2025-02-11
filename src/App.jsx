@@ -14,6 +14,7 @@ import NotFound from "./components/NotFound";
 import AboutPage from "./components/AboutPage";
 import ContactPage from "./components/ContactPage";
 import SketchCanvas from "./components/things/SketchCanvas";
+import GetMovieRecommendatios from "./components/things/GetMovieRecommendatios";
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
 
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/recommendations" element={<GetMovieRecommendatios />} />
         <Route path="/canvas" element={<SketchCanvas />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

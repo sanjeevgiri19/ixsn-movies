@@ -14,7 +14,10 @@ const Popular = () => {
   const [popular, setPopular] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | Popular";
+  // document.title = "ixsn | Popular";
+  useEffect(() => {
+    document.title = "ixsn | Popular";
+  }, []);
 
   const getPopular = async () => {
     try {

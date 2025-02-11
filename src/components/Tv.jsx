@@ -14,7 +14,10 @@ const Tv = () => {
   const [tv, setTv] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | TV";
+  // document.title = "ixsn | TV";
+  useEffect(() => {
+    document.title = "ixsn | Tv";
+  }, []);
 
   const getTv = async () => {
     try {
@@ -22,7 +25,13 @@ const Tv = () => {
 
       // setTrending(data.results);
       if (data.results.length > 0) {
-        setTv((prev) => [...prev, ...data.results]);
+        // setTv((prev) => [...prev, ...data.results]);
+        setTv((prev) => {
+          const newResults = data.results.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newResults];
+        });
         setpage(page + 1);
       } else {
         sethasMore(false);

@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 
 const Dropdown = ({ options, onselect, title  }) => {
-  const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
-  const [selectedOption, setSelectedOption] = useState(null); // State to store the selected option
+  const [isOpen, setIsOpen] = useState(false); 
+  const [selectedOption, setSelectedOption] = useState(null); 
 
-  // Dropdown options
-  // const options = ["Tv", "Option 2", "Option 3", "Option 4"];
+  // const options = ["Tv", "movies", "............", "....."];
 
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  // Handle option selection
   const handleOptionClick = (option) => {
-    setSelectedOption(option); // Set the selected option
-    setIsOpen(false); // Close the dropdown
+    setSelectedOption(option);
+    setIsOpen(false); 
     onselect(option)
   };
 
   return (
-    <div className="relative w-64">
+    <div className="relative w-64 mt-3">
       <button
         onClick={toggleDropdown}
         className="px-6 max-w-40 py-1 mt-2 text-left text-white bg-transparent border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -37,7 +35,6 @@ const Dropdown = ({ options, onselect, title  }) => {
         )}
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div className="absolute z-10 text-zinc-300 w-44 mt-2 bg-zinc-700 rounded-md shadow-lg">
           {options.map((option, index) => (

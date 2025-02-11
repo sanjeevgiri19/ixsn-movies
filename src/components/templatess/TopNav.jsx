@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
+// import {instance} from "../../utils/axios";
 import { Link } from "react-router-dom";
-import noimage from "/noimage.jpg";
-import { useAuth0 } from "@auth0/auth0-react";
+// import noimage from "/noimage.jpg";
+import NoPoster from "/noImagePoster.webp";
 
+import { useAuth0 } from "@auth0/auth0-react";
 const TopNav = () => {
   const { user, loginWithRedirect, logout, isLoading, isAuthenticated } =
     useAuth0();
-
   const [query, setQuery] = useState("");
   const [searches, setSearches] = useState([]);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
-
   const GetSearches = async () => {
     try {
       setIsSearchLoading(true);
@@ -23,7 +23,10 @@ const TopNav = () => {
       setIsSearchLoading(false);
     }
   };
-
+  //debounce timer is used to limit the number of times a function is called over a certain period.
+  //  It ensures that the function is only executed after a specified delay,
+  // which helps to optimize performance, especially in scenarios like search input, button clicks, or window resizing events.
+  // This is a useful technique to prevent making too many API calls while the user is typing.
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       if (query) {
@@ -32,23 +35,20 @@ const TopNav = () => {
         setSearches([]);
       }
     }, 500);
-
     return () => clearTimeout(debounceTimer);
   }, [query]);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
   return (
-    <div className="text-white flex relative w-[80%] h-[10vh] items-center justify-start ml-36 p-8">
+    <div className="text-white flex w-5/6 top-0 left-10  z-50 absolute  items-center justify-start ml-52 mt-5">
       <i className="ri-search-line mr-3 text-xl" aria-label="Search"></i>
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="px-5 py-2 bg-transparent w-[50%] outline-none hover:border-[1px] rounded-lg hover:border-zinc-600"
+        className="px-5 py-2 bg-transparent w-[50%] outline-none hover:border-[2px] rounded-lg text-zinc-200 hover:border-zinc-300 border-[1px]   border-zinc-400"
         type="text"
-        placeholder="Search Movies"
+        placeholder="Search Movies,TV's and many more.."
       />
       {query.length > 0 && (
         <i
@@ -57,7 +57,7 @@ const TopNav = () => {
           aria-label="Clear search"
         ></i>
       )}
-      <div className="bg-zinc-700/70 z-50 absolute max-h-[48vh] top-[85%] overflow-auto rounded-md w-[47%] ml-9">
+      <div className="bg-zinc-400/50 z-50 absolute max-h-[44vh] top-[110%] overflow-auto rounded-md w-[47%] ml-12">
         {isSearchLoading ? (
           <div className="flex justify-center items-center p-4">
             <i className="ri-loader-4-line animate-spin text-2xl"></i>
@@ -76,7 +76,7 @@ const TopNav = () => {
                     ? `https://image.tmdb.org/t/p/w200/${
                         s.poster_path || s.profile_path
                       } `
-                    : noimage
+                    : NoPoster
                 }
                 alt={
                   s.title ||
@@ -98,15 +98,17 @@ const TopNav = () => {
         )}
       </div>
 
-      <div className="flex ml-auto gap-4">
+      {/* Login logout ko credentials */}
+      {/* <div className="flex ml-auto gap-4 mr-20">
         {isAuthenticated ? (
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              
               <span className="text-zinc-400">{user.name}</span>
             </div>
             <button
-              onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
               className="bg-red-500 text-white px-4 py-2 font-semibold font-lg rounded-lg hover:bg-red-600 transition-colors"
             >
               Logout
@@ -114,15 +116,14 @@ const TopNav = () => {
           </div>
         ) : (
           <button
-            className="bg-blue-500 px-4 ml-auto py-2 font-semibold text-lg rounded-lg hover:bg-blue-600 duration-300"
+            className="bg-blue-400/50 px-4 ml-auto py-2 font-semibold text-lg rounded-lg hover:bg-blue-500 duration-300"
             onClick={() => loginWithRedirect()}
           >
             Login
           </button>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
-
 export default TopNav;

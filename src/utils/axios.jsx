@@ -14,6 +14,27 @@ import axios from "axios";
 // export default instance;
 
 
+// // TMDB Axios instance
+// const instance = axios.create({
+//   baseURL: import.meta.env.VITE_API_BASE_URL,
+//   headers: {
+//     accept: "application/json",
+//     Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+//   },
+// });
+
+
+
+// // Gemini Axios instance
+// const geminiInstance = axios.create({
+//   baseURL: import.meta.env.VITE_GEMINI_API_BASE_URL, // Add this to your .env file
+//   headers: {
+//     accept: "application/json",
+//     Authorization: `Bearer ${import.meta.env.VITE_GEMINI_API_KEY}`, // Add this to your .env file
+//   },
+// });
+
+// export  { instance, geminiInstance };
 
 
 // Before deployment, move API keys to environment variables

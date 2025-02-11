@@ -14,7 +14,10 @@ const Trending = () => {
   const [trending, setTrending] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | Trending"
+  // document.title = "ixsn | Trending"
+  useEffect(() => {
+    document.title = "ixsn | Trending";
+  }, []);
 
   const getTrending = async () => {
     try {
@@ -24,8 +27,15 @@ const Trending = () => {
 
       
       if (data.results.length > 0) {
-        setTrending((prev) => [...prev, ...data.results]);
-        setpage(page + 1);
+        // setTrending((prev) => [...prev, ...data.results]);
+        setTrending((prev) => {
+          const newResults = data.results.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newResults];
+        });
+        // setpage(page + 1);
+        setpage((prev) => prev + 1)
       } else {
         sethasMore(false);
       }

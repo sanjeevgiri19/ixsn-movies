@@ -14,7 +14,10 @@ const Movies = () => {
   const [movie, setMovie] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  document.title = "ixsn | Movies";
+  // document.title = "ixsn | Movies";
+  useEffect(() => {
+    document.title = "ixsn | Movies";
+  }, []);
 
   const getMovies = async () => {
     try {
@@ -22,8 +25,14 @@ const Movies = () => {
 
       // setTrending(data.results);
       if (data.results.length > 0) {
-        setMovie((prev) => [...prev, ...data.results]);
-        setpage(page + 1);
+        // setMovie((prev) => [...prev, ...data.results]);
+        setMovie((prev) => {
+          const newResults = data.results.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newResults];
+        });
+        setpage((prev) => prev + 1);
       } else {
         sethasMore(false);
       }
@@ -45,7 +54,7 @@ const Movies = () => {
       setMovie([]);
       setpage(1);
       getMovies();
-      // sethasMore(true);
+      sethasMore(true);
     }
   };
 
@@ -84,7 +93,7 @@ const Movies = () => {
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={movie} title="movie"/>
+          <Cards data={movie} title="movie" />
         </InfiniteScroll>
       </div>
     </div>
