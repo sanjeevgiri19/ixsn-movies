@@ -18,7 +18,7 @@ import GetMovieRecommendatios from "./components/things/GetMovieRecommendatios";
 
 const App = () => {
   return (
-    <div className="w-screen bg-[#1f1e24] h-screen">
+    <div className="w-screen  bg-[#1f1e24] h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />

@@ -14,7 +14,7 @@ const Home = () => {
   const [topRated, setTopRated] = useState(null);
   const [onTheAir, setOnTheAir] = useState(null);
   const [category, setCategory] = useState("all");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Fetch wallpaper
   const GetWallpaper = async () => {
@@ -100,7 +100,7 @@ const Home = () => {
           onClick={() => setIsSidebarOpen(true)}
           className={`${
             isSidebarOpen ? "hidden" : "block"
-          } text-white absolute z-50 left-44 top-6 px-2 py-[2px] text-xl hover:bg-zinc-400/20 rounded-full ml-auto mr-4`}
+          } text-white absolute z-50 lg:left-44 left-2 top-6 px-2 py-[2px] text-xl hover:bg-zinc-400/20 rounded-full ml-auto mr-4`}
         >
           <i className="ri-menu-line"></i>
         </button>
@@ -108,9 +108,9 @@ const Home = () => {
         <TopNav />
         <Header data={wallpaper} />
 
-        <div className="h-[38vh] w-full">
+        <div className="h-[45vh] w-full">
           <div className="flex justify-between">
-            <h1 className="font-semibold text-lg p-2 ml-10 mt-3 text-white">
+            <h1 className="font-semibold text-lg p-2 ml-8 mt-3 text-white">
               Trending
             </h1>
             <Dropdown
@@ -122,22 +122,22 @@ const Home = () => {
           <HorizontalContent data={trending} />
         </div>
 
-        <div className="h-[38vh] w-full">
-          <h1 className="font-semibold text-lg p-2 ml-10 mt-3 text-white">
+        <div className="h-[45vh] w-full">
+          <h1 className="font-semibold text-lg p-2 ml-8 mt-16 text-white">
             Popular
           </h1>
           <HorizontalContent data={popular} />
         </div>
 
-        <div className="h-[38vh] w-full">
-          <h1 className="font-semibold text-lg p-2 ml-10 mt-3 text-white">
+        <div className="h-[45vh] w-full">
+          <h1 className="font-semibold text-lg p-2 ml-8 mt-12 text-white">
             Top Rated
           </h1>
           <HorizontalContent data={topRated} />
         </div>
 
-        <div className="h-[38vh] w-full">
-          <h1 className="font-semibold text-lg p-2 ml-10 mt-3 text-white">
+        <div className="h-[45vh] w-full">
+          <h1 className="font-semibold text-lg p-2 ml-8 mt-12 text-white">
             On The Air (TV Shows)
           </h1>
           <HorizontalContent data={onTheAir} />

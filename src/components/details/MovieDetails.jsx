@@ -71,10 +71,11 @@ const MovieDetails = () => {
           <img
             className="rounded-md w-[90%] h-[100%] p-1  "
             src={
-              info.detail.poster_path ||
-              info.detail.backdrop_path ? `https://image.tmdb.org/t/p/original/${
-                info.detail.poster_path || info.detail.backdrop_path
-              }` : NoPoster
+              info.detail.poster_path || info.detail.backdrop_path
+                ? `https://image.tmdb.org/t/p/original/${
+                    info.detail.poster_path || info.detail.backdrop_path
+                  }`
+                : NoPoster
             }
             alt="wow"
           />
@@ -109,19 +110,17 @@ const MovieDetails = () => {
           </div>
 
           <div className=" flex  gap-x-1">
-            {info.detail.vote_average ? (
-              <div className="flex gap-2">
-                <div className="bg-[#A45EE9] font-medium text-[24px] h-12 w-12 rounded-full flex justify-center items-center">
-                  {(info.detail.vote_average * 10).toFixed()}
-                  <sup className="text-sm">%</sup>
-                </div>
-                <h2 className="flex text-lg text-zinc-300 leading-5 mt-1 font-medium  flex-col">
-                  User <span>Score</span>
-                </h2>
+            <div className="flex gap-2">
+              <div className="bg-[#A45EE9] font-medium text-[18px] h-12 w-12 rounded-full flex justify-center items-center">
+                {info.detail
+                  .vote_average ? (info.detail.vote_average * 10)
+                  .toFixed() :'N/A'}
+                <sup className="text-sm">%</sup>
               </div>
-            ) : (
-              ""
-            )}
+              <h2 className="flex text-lg text-zinc-300 leading-5 mt-1 font-medium  flex-col">
+                User <span>Score</span>
+              </h2>
+            </div>
 
             <div className="text-2 flex ml-7 text-zinc-300 text-2xl font-semibold mt-2">
               {info.detail.tagline}

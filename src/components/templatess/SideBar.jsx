@@ -6,23 +6,23 @@ const SideBar = ({ onClose }) => {
   const [isExtended, setisExtended] = useState(false);
 
   return (
-    <div className="w-[15%] sticky top-0 mt-3 h-full border-r-2 border-zinc-400 px-6 ">
+    <div className="md:w-[15%] w-full sticky top-0 mt-3 h-full border-r-2 border-zinc-400 px-5 ">
       <button
         onClick={onClose}
-        className="absolute top-0 right-4  text-white rounded-full"
+        className="absolute top-0 lg:right-4 md:right-3 right-2   text-white rounded-full"
         aria-label="Close Sidebar"
       >
         <i
           onClick={() => setisExtended((prev) => !prev)}
-          className="ri-close-line cursor-pointer text-zinc-400 hover:text-zinc-200 hover:bg-zinc-400/20 rounded-full text-3xl block max-w-10 w-9 h-9 mt-6 font-medium"
+          className="ri-close-line cursor-pointer text-zinc-400 hover:text-zinc-200 hover:bg-zinc-400/20 rounded-full lg:text-3xl text-xl md:text-xl  block max-w-10 w-9 h-9 mt-6 font-medium"
         ></i>
       </button>
 
       <div className="flex  justify-between">
-        <h1 className="text-white flex pt-5 font-medium text-4xl">
+        <h1 className="text-white flex pt-5 font-medium lg:text-4xl md:text-2xl text-3xl ">
           <i className="ri-tv-fill"></i>
-          <div className="ml-1 flex-col text-sm tracking-wide leading-tight pt-[3px]">
-            <span className="block">ixsn</span>
+          <div className="ml-1 flex-col text-xs md:text-sm lg:text-sm tracking-wide leading-tight pt-[3px]">
+            <span className="block ">ixsn</span>
             <span className="block">movies</span>
           </div>
         </h1>
@@ -33,9 +33,11 @@ const SideBar = ({ onClose }) => {
       </div>
 
       {/* Extended Menu */}
-      {/* {isExtended && ( */}
+      {/* {isExtended && div} */}
       <div>
-        <h1 className="text-white  font-medium text-lg py-6">New Feeds</h1>
+        <h1 className="text-white  font-medium lg:text-lg md:text-lg text-md py-6">
+          New Feeds
+        </h1>
         <nav className="text-zinc-300  gap-5 flex text-lg flex-col">
           <Link
             to="/trending"
@@ -43,6 +45,7 @@ const SideBar = ({ onClose }) => {
           >
             <i className="ri-fire-fill"></i> Trending
           </Link>
+
           <Link
             to="/popular"
             className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
@@ -99,10 +102,8 @@ const SideBar = ({ onClose }) => {
           </Link>
         </nav>
       </div>
-      {/* )} */}
     </div>
   );
 };
 
 export default SideBar;
-

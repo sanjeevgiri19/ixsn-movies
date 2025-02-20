@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Cards = ({ data, title }) => {
   return (
-    <div className="text-white  px-6 py-6 bg-[#1f1e24] flex flex-wrap gap-10 overflow-hidden overflow-y-auto ">
+    <div className="text-white px-4 py-4 sm:p-6 lg:p-7 bg-[#1f1e24] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-7 overflow-hidden overflow-y-auto ">
       {data.map((c, i) => (
         <Link
           to={`/${title}/details/${c.id}`}
           key={i}
-          className=" w-64 cursor-pointer relative rounded shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] "
+          className=" w-72 sm:w-64 md:w-72 lg:w-72 block cursor-pointer relative rounded-md shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] "
         >
           <img
-            className=" px-6 pt-4 rounded"
+            className="w-full h-72 sm:h-64 md:h-72 lg:h-80 px-6 pt-4 rounded"
             src={`https://image.tmdb.org/t/p/w1280/${
               c.profile_path || c.poster_path || c.backdrop_path
             } `}
@@ -21,16 +21,16 @@ const Cards = ({ data, title }) => {
             {c.title || c.name || c.original_title || c.original_name}
           </h2>
 
-          {c.vote_average && (
+          {
             <div className="bg-zinc-500/70 absolute font-medium right-0 bottom-[20%] h-10 w-10 rounded-full flex justify-center items-center">
-              {(c.vote_average * 10).toFixed()}
+              {c.vote_average ? (c.vote_average * 10).toFixed() : "N/A"}
               <sup className="mt-[4px]">%</sup>
             </div>
-          )}
+          }
         </Link>
       ))}
     </div>
   );
 };
 
-export default Cards
+export default Cards;

@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* html, body { */
+   /* overflow-x: hidden; */
+  /* width: 100%; */
+  /* background-color: #1f1e24; */
+/* } */
+
+body {
+  overflow-x: hidden;
+  /* height: 100%; */
+  background-color: #1f1e24;
+  width: 100%;
+}
+
+/* * {
+  max-width: 100%;
+  box-sizing: border-box;
+} */
+
 ::-webkit-scrollbar{
   height: 4px;
   width: 7px;
@@ -15,3 +33,32 @@
 ::-webkit-slider-thumb:hover{
   background-color: aqua;
 } */
+
+/* Custom media queries for finer control */
+@media (max-width: 639px) {
+  .card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .card {
+    width: calc(50% - 1rem);
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card {
+    width: calc(33.333% - 1rem);
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(25% - 1rem);
+    margin-bottom: 1rem;
+  }
+}
