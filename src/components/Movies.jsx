@@ -75,7 +75,7 @@ const Movies = () => {
             ({category.replace(/_/g, " ")})
           </span>
         </h1>
-        <TopNav />
+        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}

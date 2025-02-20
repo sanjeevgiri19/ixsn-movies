@@ -67,7 +67,7 @@ const Peoples = () => {
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Person
         </h1>
-        <TopNav />
+        {/* <TopNav /> */}
       </div>
 
       <div className="w-full">

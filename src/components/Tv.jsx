@@ -73,7 +73,7 @@ const Tv = () => {
           TV
           <span className="text-sm ml-2">({category.replace(/_/g, " ").toUpperCase()})</span>
         </h1>
-        <TopNav />
+        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}

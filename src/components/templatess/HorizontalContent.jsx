@@ -12,7 +12,7 @@ const HorizontalContent = ({ data }) => {
   return (
     <div
       className="h-full mx-6 relative overflow-x-auto 
-     px-3 pt-2 pb-4 flex gap-3"
+     px-3 pt-2 pb-4 flex gap-5"
     >
       {data.map((d, id) => (
         <Link

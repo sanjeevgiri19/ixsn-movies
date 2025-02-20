@@ -80,7 +80,7 @@ const Trending = () => {
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Trending
         </h1>
-        <TopNav />
+        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}

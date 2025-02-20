@@ -39,7 +39,7 @@ const TopNav = () => {
   }
 
   return (
-    <div className="text-white flex w-full sm:w-5/6 top-0 left-0 sm:left-10 z-50 absolute items-center justify-center sm:justify-start lg:ml-60 md:ml-16 mt-6 px-4 sm:px-0">
+    <div className="text-white flex w-full sm:w-5/6 top-0 left-0 sm:left-10 z-50 absolute items-center justify-center sm:justify-start lg:ml-60 md:ml-16 mt-2 px-4 sm:px-0">
       {/* Search Icon */}
       <i className="ri-search-line mr-3 lg:text-xl md:text-xl sm:text-lg" aria-label="Search"></i>
 
@@ -63,7 +63,7 @@ const TopNav = () => {
 
       {/* Search Results Dropdown */}
       {query.length > 0 && (
-        <div className="bg-zinc-400/50 z-50 absolute max-h-[38vh] lg:max-h-[44vh] top-[110%] overflow-auto rounded-md w-[60%] md:w-[54%] lg:w-[56%] md:left-[54px] sm:left-12">
+        <div className="bg-zinc-400/50 z-50 absolute max-h-[38vh] lg:max-h-[44vh] top-[110%] overflow-auto rounded-md w-[53%] md:w-[54%] lg:w-[56%] md:left-[54px] sm:left-12">
           {isSearchLoading ? (
             <div className="flex justify-center items-center p-4">
               <i className="ri-loader-4-line animate-spin text-2xl"></i>

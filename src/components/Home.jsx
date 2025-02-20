@@ -88,7 +88,7 @@ const Home = () => {
   }, [category]);
 
   return trending && wallpaper && popular && topRated && onTheAir ? (
-    <div className="bg-[#1d1c22] flex">
+    <div className="bg-[#1d1c22]  flex">
       {isSidebarOpen && <SideBar onClose={() => setIsSidebarOpen(false)} />}
 
       <div
@@ -105,7 +105,7 @@ const Home = () => {
           <i className="ri-menu-line"></i>
         </button>
 
-        <TopNav />
+        
         <Header data={wallpaper} />
 
         <div className="h-[45vh] w-full">
