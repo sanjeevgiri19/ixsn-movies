@@ -6,6 +6,9 @@ import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
+import {BounceLoader} from 'react-spinners'
+import CardSkeleton from "./skeleton/CardSkeleton";
+
 
 const Movies = () => {
   const navigate = useNavigate();
@@ -76,7 +79,7 @@ const Movies = () => {
           </span>
         </h1>
         {/* <TopNav /> */}
-        <div className="flex w-[22%] pr-2">
+        <div className="flex w-[26%] pr-2">
           <Dropdown
             title={"Category"}
             onselect={handleCategoryChange}
@@ -85,11 +88,13 @@ const Movies = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full items-center justify-center">
         <InfiniteScroll
           dataLength={movie.length}
           next={getMovies}
-          loader={<Loading />}
+          // loader={<Loading />}
+          loader={<CardSkeleton />}
+          // loader={<Loader />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

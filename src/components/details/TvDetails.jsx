@@ -6,6 +6,9 @@ import HorizontalContent from "../templatess/HorizontalContent";
 import NoPoster from '/noImagePoster.webp'
 import Trailer from "../Trailer";
 import Loading from "../Loading";
+import TVDetailPage from "../skeleton/TvSkeleton";
+import TVDetailSkeleton from "../skeleton/TvSkeleton";
+import MovieDetailSkeleton from "../skeleton/MovieSkeleton";
 
 const TvDetails = () => {
   // const { info } = useSelector((state) => state.tv);
@@ -185,7 +188,9 @@ const TvDetails = () => {
       <Outlet />
     </div>
   ) : (
-    <Loading />
+    // <Loading />
+    // <TVDetailSkeleton />
+    <MovieDetailSkeleton />
   );
 };
 

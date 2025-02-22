@@ -6,6 +6,7 @@ import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
+import CardSkeleton from "./skeleton/CardSkeleton";
 
 const Popular = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const Popular = () => {
   }, [category]);
 
   return (
-    <div className="h-full w-full ">
+    <div className="h-full w-[100%] overflow-x-hidden ">
       <div className=" flex justify-between bg-[#1d1c22] p-3 items-center h-[12%]">
         <h1
           onClick={() => navigate(-1)}
@@ -69,22 +70,22 @@ const Popular = () => {
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Popular
         </h1>
-        <TopNav />
-        <div className="flex w-[22%] pr-2">
+        {/* <TopNav /> */}
+        <div className="flex w-[22%] pr-8">
           <Dropdown
             title={"Category"}
             onselect={handleCategoryChange}
             options={["tv", "movie"]}
           />
-         
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full overflow-x-hidden">
         <InfiniteScroll
           dataLength={popular.length}
           next={getPopular}
-          loader={<Loading />}
+          // loader={<Loading />}
+         loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

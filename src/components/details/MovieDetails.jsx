@@ -7,6 +7,8 @@ import Trailer from "../Trailer";
 import NoPoster from "/noImagePoster.webp";
 import Loading from "../Loading";
 
+import MovieDetailSkeleton from "../skeleton/MovieSkeleton";
+
 const MovieDetails = () => {
   // const { info } = useSelector((state) => state.movie);
   const { info } = useSelector((state) => state.movie);
@@ -159,7 +161,8 @@ const MovieDetails = () => {
       <Outlet />
     </div>
   ) : (
-    <Loading />
+    // <Loading />
+    <MovieDetailSkeleton />
   );
 };
 

@@ -6,6 +6,7 @@ import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
+import CardSkeleton from "./skeleton/CardSkeleton";
 
 const Peoples = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Peoples = () => {
   const getPerson = async () => {
     try {
       const { data } = await axios.get(`/person/popular?page=${page}`);
-      console.log(data);
+      // console.log(data);
 
       // setPerson(data.results);
       if (data.results.length > 0) {
@@ -74,7 +75,8 @@ const Peoples = () => {
         <InfiniteScroll
           dataLength={person.length}
           next={getPerson}
-          loader={<Loading />}
+          // loader={<Loading />}
+          loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

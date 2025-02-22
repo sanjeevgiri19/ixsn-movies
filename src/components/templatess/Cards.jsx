@@ -21,7 +21,7 @@ const Cards = ({ data, title }) => {
             {c.title || c.name || c.original_title || c.original_name}
           </h2>
 
-          {
+          {c.vote_average &&
             <div className="bg-zinc-500/70 absolute font-medium right-0 bottom-[20%] h-10 w-10 rounded-full flex justify-center items-center">
               {c.vote_average ? (c.vote_average * 10).toFixed() : "N/A"}
               <sup className="mt-[4px]">%</sup>

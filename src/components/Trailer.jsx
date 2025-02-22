@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import NotFound from "../components/NotFound";
 import Loading from "./Loading";
+import CardSkeleton from "./skeleton/CardSkeleton";
 
 const Trailer = () => {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const Trailer = () => {
   if (!ytvideo) {
     return (
       <div className="flex items-center justify-center h-screen bg-purple-700/70 text-white">
-        <Loading />
+        {/* <Loading /> */}
+        <CardSkeleton />
       </div>
     );
   }

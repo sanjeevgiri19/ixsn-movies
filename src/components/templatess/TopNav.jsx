@@ -41,13 +41,16 @@ const TopNav = () => {
   return (
     <div className="text-white flex w-full sm:w-5/6 top-0 left-0 sm:left-10 z-50 absolute items-center justify-center sm:justify-start lg:ml-60 md:ml-16 mt-2 px-4 sm:px-0">
       {/* Search Icon */}
-      <i className="ri-search-line mr-3 lg:text-xl md:text-xl sm:text-lg" aria-label="Search"></i>
+      <i
+        className="ri-search-line mr-3 lg:text-xl md:text-xl sm:text-lg"
+        aria-label="Search"
+      ></i>
 
       {/* Search Input */}
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="px-4 placeholder-gray-400  sm:px-5 py-1 lg:py-2 bg-transparent w-[60%] sm:w-[60%] outline-none hover:border-[2px] rounded-lg text-zinc-200 hover:border-zinc-300 border-[2px] border-zinc-500"
+        className="px-4 placeholder-gray-50  sm:px-5 py-1 lg:py-2 bg-transparent w-[60%] sm:w-[60%] outline-none hover:border-[2px] rounded-lg text-zinc-200 hover:border-zinc-300 border-[2px] border-zinc-500"
         type="text"
         placeholder="Search Movies, TV's, and more..."
       />
@@ -109,14 +112,42 @@ const TopNav = () => {
       )}
     </div>
   );
-};
+}; 
+      {/* <div className="flex ml-auto gap-4 mr-20">
+        {isAuthenticated ? (
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-zinc-300 bg-zinc-500/50 px-3 py-1 rounded-lg">{user.name}</span>
+            </div>
+            <button
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+              className="bg-red-500 text-white px-4 py-2 font-semibold font-lg rounded-lg hover:bg-red-600 transition-colors"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <button
+            className="bg-blue-400/50 px-4 ml-auto py-2 font-semibold text-lg rounded-lg hover:bg-blue-500 duration-300"
+            onClick={() => loginWithRedirect()}
+          >
+            Login
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}; 
+*/}
 
 export default TopNav;
 
 {
   /* Login logout ko credentials */
 }
-// <div className="flex ml-auto gap-4 mr-20">
+{/* // <div className="flex ml-auto gap-4 mr-20">
 //   {isAuthenticated ? (
 //     <div className="flex items-center gap-4">
 //       <div className="flex items-center gap-2">
@@ -139,4 +170,4 @@ export default TopNav;
 //       Login
 //     </button>
 //   )}
-// </div>
+// </div> */}

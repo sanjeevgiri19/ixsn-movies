@@ -6,6 +6,7 @@ import HorizontalContent from "./templatess/HorizontalContent";
 import Loading from "./Loading";
 import axios from "../utils/axios";
 import Dropdown from "./templatess/Dropdown";
+import HomePageSkeleton from "./skeleton/HomeSkeleton";
 
 const Home = () => {
   const [wallpaper, setWallpaper] = useState(null);
@@ -100,7 +101,7 @@ const Home = () => {
           onClick={() => setIsSidebarOpen(true)}
           className={`${
             isSidebarOpen ? "hidden" : "block"
-          } text-white absolute z-50 lg:left-44 left-2 top-6 px-2 py-[2px] text-xl hover:bg-zinc-400/20 rounded-full ml-auto mr-4`}
+          } text-white absolute cursor-pointer z-50 lg:left-44 left-3 top-5 px-2 py-[2px] text-xl hover:bg-zinc-400/20 rounded-full ml-auto mr-4`}
         >
           <i className="ri-menu-line"></i>
         </button>
@@ -145,7 +146,8 @@ const Home = () => {
       </div>
     </div>
   ) : (
-    <Loading />
+    // <Loading />
+    <HomePageSkeleton />
   );
 };
 

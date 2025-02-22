@@ -6,6 +6,7 @@ import Cards from "./templatess/Cards";
 import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
+import CardSkeleton from "./skeleton/CardSkeleton";
 
 const Trending = () => {
   const navigate = useNavigate();
@@ -99,7 +100,8 @@ const Trending = () => {
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}
-          loader={<Loading />}
+          // loader={<Loading />}
+          loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
