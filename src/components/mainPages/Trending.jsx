@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "./templatess/TopNav";
-import Dropdown from "./templatess/Dropdown";
+import TopNav from "../templatess/TopNav";
+import Dropdown from "../templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Cards from "./templatess/Cards";
-import axios from "../utils/axios";
+import Cards from "../templatess/Cards";
+import axios from "../../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from "./Loading";
-import CardSkeleton from "./skeleton/CardSkeleton";
+import Loading from "../skeleton/Loading";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
 const Trending = () => {
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ const Trending = () => {
         `/trending/${category}/${duration}?page=${page}`
       );
 
-      
       if (data.results.length > 0) {
         // setTrending((prev) => [...prev, ...data.results]);
         setTrending((prev) => {
@@ -36,7 +35,7 @@ const Trending = () => {
           return [...prev, ...newResults];
         });
         // setpage(page + 1);
-        setpage((prev) => prev + 1)
+        setpage((prev) => prev + 1);
       } else {
         sethasMore(false);
       }
@@ -46,8 +45,6 @@ const Trending = () => {
     }
   };
   // console.log(trending.results.media_type);
-
-  
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
@@ -62,7 +59,7 @@ const Trending = () => {
     } else {
       setTrending([]);
       setpage(1);
-      getTrending()
+      getTrending();
       // sethasMore(true);
     }
   };

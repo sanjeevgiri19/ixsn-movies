@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -13,6 +14,12 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-[#1d1c22] text-gray-900 p-8">
+      <Link
+               to="/"
+               className="font-white my-10 font-semibold text-xl px-3 py-1 text-zinc-400 rounded  border-2  border-zinc-500"
+             >
+               Back
+             </Link>
       <header className="text-center mb-12">
         <h1 className="text-5xl font-bold text-zinc-200 mb-4">Contact Us</h1>
         <p className="text-lg text-gray-300">

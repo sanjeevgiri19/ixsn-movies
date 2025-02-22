@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "./templatess/TopNav";
+import TopNav from "../templatess/TopNav";
 // import Dropdown from "./templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Cards from "./templatess/Cards";
-import axios from "../utils/axios";
+import Cards from "../templatess/Cards";
+import axios from "../../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from "./Loading";
-import CardSkeleton from "./skeleton/CardSkeleton";
+import Loading from "../skeleton/Loading";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
 const Peoples = () => {
   const navigate = useNavigate();
   const [person, setPerson] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | Peoples";   yo sidhai lekhyo vane re-rendering cause garna sakcha 
+  // document.title = "ixsn | Peoples";   yo sidhai lekhyo vane re-rendering cause garna sakcha
   useEffect(() => {
     document.title = "ixsn | Peoples";
   }, []);
@@ -25,7 +25,7 @@ const Peoples = () => {
 
       // setPerson(data.results);
       if (data.results.length > 0) {
-        // setPerson((prev) => [...prev, ...data.results]);   //yedi api response ma duplicate entry xa vane add huncha due to pagination, which could lead to duplicate items 
+        // setPerson((prev) => [...prev, ...data.results]);   //yedi api response ma duplicate entry xa vane add huncha due to pagination, which could lead to duplicate items
         setPerson((prev) => {
           const newResults = data.results.filter(
             (item) => !prev.some((p) => p.id === item.id)

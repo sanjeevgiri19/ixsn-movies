@@ -1,41 +1,44 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "./templatess/TopNav";
-import Dropdown from "./templatess/Dropdown";
+// import TopNav from "./templatess/TopNav";
+// import Dropdown from "./templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Cards from "./templatess/Cards";
-import axios from "../utils/axios";
+// import Cards from "./templatess/Cards";
+// import axios from "../utils/axios";
+import axios from '../../utils/axios'
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from "./Loading";
-import {BounceLoader} from 'react-spinners'
-import CardSkeleton from "./skeleton/CardSkeleton";
+// import Loading from "./skeleton/Loading";
+// import CardSkeleton from "./skeleton/CardSkeleton";
+import Dropdown from "../templatess/Dropdown";
+import Cards from "../templatess/Cards";
+import CardSkeleton from "../skeleton/CardSkeleton";
+// import axios from "axios";
 
-
-const Movies = () => {
+const Tv = () => {
   const navigate = useNavigate();
   const [category, setcategory] = useState("popular");
   // const [duration, setduration] = useState("day");
-  const [movie, setMovie] = useState([]);
+  const [tv, setTv] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | Movies";
+  // document.title = "ixsn | TV";
   useEffect(() => {
-    document.title = "ixsn | Movies";
+    document.title = "ixsn | Tv";
   }, []);
 
-  const getMovies = async () => {
+  const getTv = async () => {
     try {
-      const { data } = await axios.get(`/movie/${category}?page=${page}`);
+      const { data } = await axios.get(`/tv/${category}?page=${page}`);
 
       // setTrending(data.results);
       if (data.results.length > 0) {
-        // setMovie((prev) => [...prev, ...data.results]);
-        setMovie((prev) => {
+        // setTv((prev) => [...prev, ...data.results]);
+        setTv((prev) => {
           const newResults = data.results.filter(
             (item) => !prev.some((p) => p.id === item.id)
           );
           return [...prev, ...newResults];
         });
-        setpage((prev) => prev + 1);
+        setpage(page + 1);
       } else {
         sethasMore(false);
       }
@@ -44,25 +47,25 @@ const Movies = () => {
       console.log("Error", error);
     }
   };
-  // console.log(movie);
+  // console.log(tv);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
   };
 
-  const refreshMovie = () => {
-    if (movie.length === 0) {
-      getMovies();
+  const refreshTv = () => {
+    if (tv.length === 0) {
+      getTv();
     } else {
-      setMovie([]);
+      setTv([]);
       setpage(1);
-      getMovies();
-      sethasMore(true);
+      getTv();
+      // sethasMore(true);
     }
   };
 
   useEffect(() => {
-    refreshMovie();
+    refreshTv();
   }, [category]);
 
   return (
@@ -70,39 +73,38 @@ const Movies = () => {
       <div className=" flex justify-between bg-[#1d1c22] p-3 items-center h-[12%]">
         <h1
           onClick={() => navigate(-1)}
-          className="w-[22%] cursor-pointer text-zinc-200 p-5 font-semibold text-xl "
+          className="w-[20%] cursor-pointer text-zinc-200 p-5 font-semibold text-xl "
         >
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
-          Movies
-          <span className="text-base ml-2">
-            ({category.replace(/_/g, " ")})
+          TV
+          <span className="text-sm ml-2">
+            ({category.replace(/_/g, " ").toUpperCase()})
           </span>
         </h1>
         {/* <TopNav /> */}
-        <div className="flex w-[26%] pr-2">
+        <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}
             onselect={handleCategoryChange}
-            options={["now_playing", "top_rated", "upcoming", "popular"]}
+            options={["airing_today", "top_rated", "on_the_air", "popular"]}
           />
         </div>
       </div>
 
-      <div className="w-full items-center justify-center">
+      <div className="w-full">
         <InfiniteScroll
-          dataLength={movie.length}
-          next={getMovies}
+          dataLength={tv.length}
+          next={getTv}
           // loader={<Loading />}
           loader={<CardSkeleton />}
-          // loader={<Loader />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={movie} title="movie" />
+          <Cards data={tv} title="tv" />
         </InfiniteScroll>
       </div>
     </div>
   );
 };
 
-export default Movies;
+export default Tv;

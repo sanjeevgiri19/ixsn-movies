@@ -1,38 +1,32 @@
 import React, { useEffect, useState } from "react";
-import TopNav from "./templatess/TopNav";
-import Dropdown from "./templatess/Dropdown";
+import TopNav from "../templatess/TopNav";
+import Dropdown from "../templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
-import Cards from "./templatess/Cards";
-import axios from "../utils/axios";
+import Cards from "../templatess/Cards";
+import axios from "../../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from "./Loading";
-import CardSkeleton from "./skeleton/CardSkeleton";
+import Loading from "../skeleton/Loading";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
-const Tv = () => {
+const Popular = () => {
   const navigate = useNavigate();
-  const [category, setcategory] = useState("popular");
+  const [category, setcategory] = useState("movie");
   // const [duration, setduration] = useState("day");
-  const [tv, setTv] = useState([]);
+  const [popular, setPopular] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | TV";
+  // document.title = "ixsn | Popular";
   useEffect(() => {
-    document.title = "ixsn | Tv";
+    document.title = "ixsn | Popular";
   }, []);
 
-  const getTv = async () => {
+  const getPopular = async () => {
     try {
-      const { data } = await axios.get(`/tv/${category}?page=${page}`);
+      const { data } = await axios.get(`/${category}/popular?page=${page}`);
 
       // setTrending(data.results);
       if (data.results.length > 0) {
-        // setTv((prev) => [...prev, ...data.results]);
-        setTv((prev) => {
-          const newResults = data.results.filter(
-            (item) => !prev.some((p) => p.id === item.id)
-          );
-          return [...prev, ...newResults];
-        });
+        setPopular((prev) => [...prev, ...data.results]);
         setpage(page + 1);
       } else {
         sethasMore(false);
@@ -42,62 +36,61 @@ const Tv = () => {
       console.log("Error", error);
     }
   };
-  // console.log(tv);
+  // console.log(popular);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
   };
 
-  const refreshTv = () => {
-    if (tv.length === 0) {
-      getTv();
+  const refreshPopular = () => {
+    if (popular.length === 0) {
+      getPopular();
     } else {
-      setTv([]);
+      setPopular([]);
       setpage(1);
-      getTv();
+      getPopular();
       // sethasMore(true);
     }
   };
 
   useEffect(() => {
-    refreshTv();
+    refreshPopular();
   }, [category]);
 
   return (
-    <div className="h-full w-full ">
+    <div className="h-full w-[100%] overflow-x-hidden ">
       <div className=" flex justify-between bg-[#1d1c22] p-3 items-center h-[12%]">
         <h1
           onClick={() => navigate(-1)}
           className="w-[20%] cursor-pointer text-zinc-200 p-5 font-semibold text-xl "
         >
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
-          TV
-          <span className="text-sm ml-2">({category.replace(/_/g, " ").toUpperCase()})</span>
+          Popular
         </h1>
         {/* <TopNav /> */}
-        <div className="flex w-[22%] pr-2">
+        <div className="flex w-[22%] pr-8">
           <Dropdown
             title={"Category"}
             onselect={handleCategoryChange}
-            options={["airing_today", "top_rated", "on_the_air", "popular"]}
+            options={["tv", "movie"]}
           />
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full overflow-x-hidden">
         <InfiniteScroll
-          dataLength={tv.length}
-          next={getTv}
+          dataLength={popular.length}
+          next={getPopular}
           // loader={<Loading />}
           loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >
-          <Cards data={tv} title="tv" />
+          <Cards data={popular} title={category} />
         </InfiniteScroll>
       </div>
     </div>
   );
 };
 
-export default Tv;
+export default Popular;

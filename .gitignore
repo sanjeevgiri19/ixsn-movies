@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+axios.txt
+home.txt
+home.txt
+sidebat.txt
+text.txt
 
 # misc
 .DS_Store

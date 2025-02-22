@@ -1,20 +1,21 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Trending from "./components/Trending";
-import Popular from "./components/Popular";
-import Movies from "./components/Movies";
-import Tv from "./components/Tv";
-import Peoples from "./components/Peoples";
+import Home from "./components/mainPages/Home";
+import Trending from "./components/mainPages/Trending";
+import Popular from "./components/mainPages/Popular";
+import Movies from "./components/mainPages/Movies";
+import Tv from "./components/mainPages/Tv";
+import Peoples from "./components/mainPages/Peoples";
 import MovieDetails from "./components/details/MovieDetails";
 import TvDetails from "./components/details/TvDetails";
 import PersonDetails from "./components/details/PersonDetails";
-import Trailer from "./components/Trailer";
-import NotFound from "./components/NotFound";
-import AboutPage from "./components/AboutPage";
-import ContactPage from "./components/ContactPage";
+import Trailer from "./components/mainPages/Trailer";
+
 import SketchCanvas from "./components/things/SketchCanvas";
 import GetMovieRecommendatios from "./components/things/GetMovieRecommendatios";
+import ContactPage from "./components/pages/ContactPage";
+import AboutPage from "./components/pages/AboutPage";
+import NotFound from "./components/pages/NotFound";
 
 const App = () => {
   return (

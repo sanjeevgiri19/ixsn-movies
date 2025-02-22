@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import SideBar from "./templatess/SideBar";
-import TopNav from "./templatess/TopNav";
-import Header from "./templatess/Header";
-import HorizontalContent from "./templatess/HorizontalContent";
-import Loading from "./Loading";
-import axios from "../utils/axios";
-import Dropdown from "./templatess/Dropdown";
-import HomePageSkeleton from "./skeleton/HomeSkeleton";
+import SideBar from "../templatess/SideBar";
+import TopNav from "../templatess/TopNav";
+import Header from "../templatess/Header";
+import HorizontalContent from "../templatess/HorizontalContent";
+import Loading from "../skeleton/Loading";
+import axios from "../../utils/axios";
+import Dropdown from "../templatess/Dropdown";
+import HomePageSkeleton from "../skeleton/HomeSkeleton";
 
 const Home = () => {
   const [wallpaper, setWallpaper] = useState(null);
@@ -106,7 +106,6 @@ const Home = () => {
           <i className="ri-menu-line"></i>
         </button>
 
-        
         <Header data={wallpaper} />
 
         <div className="h-[45vh] w-full">

@@ -2,9 +2,10 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import NotFound from "../components/NotFound";
-import Loading from "./Loading";
-import CardSkeleton from "./skeleton/CardSkeleton";
+// import NotFound from "./pages/NotFound";
+import Loading from "../skeleton/Loading";
+import CardSkeleton from "../skeleton/CardSkeleton";
+import NotFound from "../pages/NotFound";
 
 const Trailer = () => {
   const navigate = useNavigate();

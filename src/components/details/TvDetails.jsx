@@ -3,9 +3,9 @@ import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadtv, removetv } from "../store/actions/tvActions";
 import HorizontalContent from "../templatess/HorizontalContent";
-import NoPoster from '/noImagePoster.webp'
-import Trailer from "../Trailer";
-import Loading from "../Loading";
+import NoPoster from "/noImagePoster.webp";
+import Trailer from "../mainPages/Trailer";
+import Loading from "../skeleton/Loading";
 import TVDetailPage from "../skeleton/TvSkeleton";
 import TVDetailSkeleton from "../skeleton/TvSkeleton";
 import MovieDetailSkeleton from "../skeleton/MovieSkeleton";

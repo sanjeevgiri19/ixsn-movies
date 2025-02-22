@@ -3,9 +3,9 @@ import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
 import HorizontalContent from "../templatess/HorizontalContent";
-import Trailer from "../Trailer";
+import Trailer from "../mainPages/Trailer";
 import NoPoster from "/noImagePoster.webp";
-import Loading from "../Loading";
+import Loading from "../skeleton/Loading";
 
 import MovieDetailSkeleton from "../skeleton/MovieSkeleton";
 
@@ -114,9 +114,9 @@ const MovieDetails = () => {
           <div className=" flex  gap-x-1">
             <div className="flex gap-2">
               <div className="bg-[#A45EE9] font-medium text-[18px] h-12 w-12 rounded-full flex justify-center items-center">
-                {info.detail
-                  .vote_average ? (info.detail.vote_average * 10)
-                  .toFixed() :'N/A'}
+                {info.detail.vote_average
+                  ? (info.detail.vote_average * 10).toFixed()
+                  : "N/A"}
                 <sup className="text-sm">%</sup>
               </div>
               <h2 className="flex text-lg text-zinc-300 leading-5 mt-1 font-medium  flex-col">
