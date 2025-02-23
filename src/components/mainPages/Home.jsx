@@ -6,7 +6,7 @@ import HorizontalContent from "../templatess/HorizontalContent";
 import Loading from "../skeleton/Loading";
 import axios from "../../utils/axios";
 import Dropdown from "../templatess/Dropdown";
-import HomePageSkeleton from "../skeleton/HomeSkeleton";
+// import HomePageSkeleton from "../skeleton/HomeSkeleton";
 import CardSkeleton from "../skeleton/CardSkeleton";
 
 const Home = () => {

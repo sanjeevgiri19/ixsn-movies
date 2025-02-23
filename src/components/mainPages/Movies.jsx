@@ -65,7 +65,7 @@ const Movies = () => {
   }, [category]);
 
   return (
-    <div className="h-full w-[100%] overflow-x-hidden ">
+    <div className="h-full w-[100%]  ">
       <div className=" flex justify-between bg-[#1d1c22] p-3 items-center h-[12%]">
         <h1
           onClick={() => navigate(-1)}
