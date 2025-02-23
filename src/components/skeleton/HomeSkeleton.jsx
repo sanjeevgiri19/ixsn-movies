@@ -9,7 +9,7 @@ const HomePageSkeleton = () => {
 
           {/* Search Bar Placeholder */}
           <div className="relative w-1/2 max-w-lg">
-            <div className="absolute inset-y-0 -left-8 flex items-center pl-3 pointer-events-none">
+            <div className="absolute inset-y-0 -left-9 flex items-center pl-2 pointer-events-none">
               <div className="bg-gray-300 animate-pulse h-5 w-5 rounded-full"></div>
             </div>
             <div className="bg-gray-300 animate-pulse h-8 rounded-full w-full"></div>

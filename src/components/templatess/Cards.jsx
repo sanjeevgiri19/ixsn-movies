@@ -8,10 +8,10 @@ const Cards = ({ data, title }) => {
         <Link
           to={`/${title}/details/${c.id}`}
           key={i}
-          className=" w-72 sm:w-64 md:w-72 lg:w-72 block cursor-pointer relative rounded-md shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] "
+          className=" w-72 sm:w-52 md:w-56 lg:w-64 block cursor-pointer relative rounded-md shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] "
         >
           <img
-            className="w-full h-72 sm:h-64 md:h-72 lg:h-80 px-6 pt-4 rounded"
+            className="w-full h-64 sm:h-64 md:h-72 lg:h-72  px-6 pt-4 rounded"
             src={`https://image.tmdb.org/t/p/w1280/${
               c.profile_path || c.poster_path || c.backdrop_path
             } `}

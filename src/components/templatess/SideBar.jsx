@@ -96,10 +96,16 @@ const SideBar = ({ onClose }) => {
           </Link>
           <Link
             to="/about"
-            className="hover:bg-[#A45EE9] p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-information-fill"></i> About
           </Link>
+          {/* <Link
+            to="/about"
+            className="hover:bg-[#A45EE9] p-2 hover:text-white rounded-lg py-1 duration-300"
+          >
+            <i className="ri-information-fill"></i> About
+          </Link> */}
         </nav>
       </div>
     </div>
