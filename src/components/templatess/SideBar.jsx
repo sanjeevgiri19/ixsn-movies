@@ -6,7 +6,7 @@ const SideBar = ({ onClose }) => {
   const [isExtended, setisExtended] = useState(false);
 
   return (
-    <div className="md:w-[15%] w-full sticky top-0 mt-3 h-full border-r-2 border-zinc-400 px-5 ">
+    <div className="md:w-[13%] w-full sticky top-0 mt-3 h-full border-r-2 border-zinc-400 px-5 ">
       <button
         onClick={onClose}
         className="absolute top-0 lg:right-4 md:right-3 right-2   text-white rounded-full"
@@ -41,38 +41,38 @@ const SideBar = ({ onClose }) => {
         <nav className="text-zinc-300  gap-5 flex text-lg flex-col">
           <Link
             to="/trending"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-fire-fill"></i> Trending
           </Link>
 
           <Link
             to="/popular"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20 hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-bard-fill"></i> Popular
           </Link>
           <Link
             to="/movies"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20 hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-movie-2-fill"></i> Movies
           </Link>
           <Link
             to="/tv"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20 hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-tv-fill"></i> TV Shows
           </Link>
           <Link
             to="/person"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-team-fill"></i> Peoples
           </Link>
           <Link
             to="/recommendations"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-bard-fill"></i> AI
           </Link>
@@ -84,19 +84,19 @@ const SideBar = ({ onClose }) => {
         <nav className="flex flex-col gap-4 text-white text-lg">
           <Link
             to="/canvas"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-edit-line"></i> Canvas
           </Link>
           <Link
             to="/contact"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-phone-fill"></i> Contact
           </Link>
           <Link
             to="/about"
-            className="hover:bg-zinc-400/20 p-2 hover:text-white rounded-lg py-1 duration-300"
+            className="hover:bg-zinc-400/20  hover:text-white rounded-lg py-1 duration-300"
           >
             <i className="ri-information-fill"></i> About
           </Link>

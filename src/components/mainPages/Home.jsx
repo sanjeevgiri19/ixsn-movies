@@ -7,6 +7,7 @@ import Loading from "../skeleton/Loading";
 import axios from "../../utils/axios";
 import Dropdown from "../templatess/Dropdown";
 import HomePageSkeleton from "../skeleton/HomeSkeleton";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
 const Home = () => {
   const [wallpaper, setWallpaper] = useState(null);
@@ -17,7 +18,6 @@ const Home = () => {
   const [category, setCategory] = useState("all");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Fetch wallpaper
   const GetWallpaper = async () => {
     try {
       const { data } = await axios.get(`/trending/all/week`);
@@ -29,7 +29,6 @@ const Home = () => {
     }
   };
 
-  // Fetch Trending Content
   const getTrendingContent = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/week`);
@@ -40,7 +39,6 @@ const Home = () => {
     }
   };
 
-  // Fetch Popular Movies & TV Shows
   const getPopularContent = async () => {
     try {
       const [movies, tvShows] = await Promise.all([
@@ -53,7 +51,6 @@ const Home = () => {
     }
   };
 
-  // Fetch Top Rated Movies & TV Shows
   const getTopRatedContent = async () => {
     try {
       const [movies, tvShows] = await Promise.all([
@@ -89,12 +86,12 @@ const Home = () => {
   }, [category]);
 
   return trending && wallpaper && popular && topRated && onTheAir ? (
-    <div className="bg-[#1d1c22]  flex">
+    <div className="bg-[#1d1c22] w-[100%] overflow-x-hidden flex">
       {isSidebarOpen && <SideBar onClose={() => setIsSidebarOpen(false)} />}
 
       <div
-        className={`h-full transition-all  relative duration-300 ${
-          isSidebarOpen ? "w-[82%]" : "w-full"
+        className={`h-full  transition-all  relative duration-300 ${
+          isSidebarOpen ? "w-[83%]" : "w-full"
         }`}
       >
         <button
@@ -146,7 +143,8 @@ const Home = () => {
     </div>
   ) : (
     // <Loading />
-    <HomePageSkeleton />
+    // <HomePageSkeleton />
+    <CardSkeleton />
   );
 };
 

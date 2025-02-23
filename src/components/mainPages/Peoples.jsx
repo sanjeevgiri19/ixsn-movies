@@ -59,7 +59,7 @@ const Peoples = () => {
   }, []);
 
   return (
-    <div className="h-full w-full ">
+    <div className="h-full w-full overflow-x-hidden">
       <div className=" flex justify-between bg-[#1d1c22] p-3 items-center h-[12%]">
         <h1
           onClick={() => navigate(-1)}

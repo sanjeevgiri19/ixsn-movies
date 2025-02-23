@@ -85,7 +85,7 @@ const MovieDetails = () => {
           />
         </div>
 
-        <div className="w-full md:w-[70%] p-2 flex flex-col gap-4">
+        <div className="w-full md:w-[70%] p-2 flex flex-col gap-3">
           <div className="flex gap-2 md:flex-row md:items-center ">
             <h2 className="text-2xl font-bold">
               {info.detail.original_title ||

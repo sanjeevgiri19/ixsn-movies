@@ -48,7 +48,7 @@ const TvDetails = () => {
       className="relative w-screen min-h-screen text-zinc-50 p-4"
     >
       {/* Navigation Links */}
-      <div className="flex gap-3 text-xl bg-zinc-500/20 w-40 p-2 rounded-md mb-4">
+      <div className="flex gap-3 text-lg bg-zinc-500/20 w-40 p-2 rounded-md mb-2">
         <Link
           onClick={() => navigate(-1)}
           className="ri-arrow-left-line"
@@ -73,7 +73,7 @@ const TvDetails = () => {
       {/* Responsive Layout */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
         {/* Poster - Centered on small screens, left on larger screens */}
-        <div className="w-full md:w-[20%] flex justify-center md:justify-start">
+        <div className="w-[70%] md:w-[23%] lg:w-[18%] flex justify-center md:justify-start">
           <img
             className="rounded-md w-[90%] max-w-xs md:max-w-none h-auto p-2 shadow-lg"
             src={`https://image.tmdb.org/t/p/original/${
@@ -84,9 +84,9 @@ const TvDetails = () => {
         </div>
 
         {/* TV Details */}
-        <div className="w-full md:w-[70%] p-2 flex flex-col gap-4">
+        <div className="w-full md:w-[70%] p-2 flex flex-col gap-2">
           <div className="flex md:flex-row md:items-center gap-2">
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-2xl font-bold">
               {info.detail.name ||
                 info.detail.original_name ||
                 info.detail.title}
