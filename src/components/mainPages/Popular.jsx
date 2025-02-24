@@ -28,6 +28,7 @@ const Popular = () => {
       if (data.results.length > 0) {
         setPopular((prev) => [...prev, ...data.results]);
         setpage(page + 1);
+        
       } else {
         sethasMore(false);
       }
@@ -49,7 +50,7 @@ const Popular = () => {
       setPopular([]);
       setpage(1);
       getPopular();
-      // sethasMore(true);
+      sethasMore(true);
     }
   };
 

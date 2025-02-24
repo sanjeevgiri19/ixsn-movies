@@ -9,7 +9,7 @@ const HorizontalContent = ({ data }) => {
   return (
     <div className="h-full mx-6 relative overflow-x-auto px-3 pt-2 pb-4 flex gap-5">
       {data.map((d, id) => {
-        const mediaType = d.media_type ? d.media_type : "movie";
+        const mediaType = d.media_type ? d.media_type : "tv";
         const displayTitle =
           d.name || d.title || d.original_name || d.original_title || "";
         const imagePath =

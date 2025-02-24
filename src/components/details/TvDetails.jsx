@@ -114,7 +114,7 @@ const TvDetails = () => {
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex gap-2 items-center">
               {info.detail.vote_average && (
-                <div className="bg-[#9c3ffa] font-medium text-[18px] h-12 w-12 rounded-full flex justify-center items-center">
+                <div className="bg-zinc-600/0 font-medium text-[18px] h-12 w-12 rounded-full flex justify-center items-center">
                   {(info.detail.vote_average * 10).toFixed()}
                   <sup className="text-sm">%</sup>
                 </div>

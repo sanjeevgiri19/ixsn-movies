@@ -30,8 +30,8 @@ const PersonDetails = () => {
   const { detail, images, tvCredits, movieCredits } = info;
 
   const truncatedBiography = detail.biography
-    ? detail.biography.length > 1000
-      ? `${detail.biography.substring(0, 1000)}`
+    ? detail.biography.length > 850
+      ? `${detail.biography.substring(0, 850)}`
       : detail.biography
     : `No Description about ${detail.name}`;
 
@@ -68,7 +68,7 @@ const PersonDetails = () => {
             <h1 className="text-4xl font-bold text-zinc-100">{detail.name}</h1>
             <p className="text-[17px] text-gray-200">
               {truncatedBiography}
-              {detail.biography && detail.biography.length > 200 && (
+              {detail.biography && detail.biography.length > 850 && (
                 <button
                   onClick={openModal}
                   className="text-blue-400 hover:text-blue-300 ml-1"

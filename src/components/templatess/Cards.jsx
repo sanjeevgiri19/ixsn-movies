@@ -11,7 +11,7 @@ const Cards = ({ data, title }) => {
           className=" w-72 sm:w-52 md:w-56 lg:w-64 block cursor-pointer relative rounded-md shadow-[2px_3px_6px_1px_rgba(80,100,20,0.3)] "
         >
           <img
-            className="w-full h-64 sm:h-64 md:h-72 lg:h-72  px-6 pt-4 rounded"
+            className="w-full h-64 sm:h-64 md:h-72 lg:h-72  px-6  rounded"
             src={`https://image.tmdb.org/t/p/w1280/${
               c.profile_path || c.poster_path || c.backdrop_path
             } `}
@@ -21,12 +21,13 @@ const Cards = ({ data, title }) => {
             {c.title || c.name || c.original_title || c.original_name}
           </h2>
 
-          {c.vote_average &&
+          {c.vote_average ? (
             <div className="bg-zinc-500/70 absolute font-medium right-0 bottom-[20%] h-10 w-10 rounded-full flex justify-center items-center">
               {c.vote_average ? (c.vote_average * 10).toFixed() : "N/A"}
               <sup className="mt-[4px]">%</sup>
             </div>
-          }
+          ) : 
+          ""}
         </Link>
       ))}
     </div>

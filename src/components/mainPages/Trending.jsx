@@ -27,15 +27,15 @@ const Trending = () => {
       );
 
       if (data.results.length > 0) {
-        // setTrending((prev) => [...prev, ...data.results]);
-        setTrending((prev) => {
-          const newResults = data.results.filter(
-            (item) => !prev.some((p) => p.id === item.id)
-          );
-          return [...prev, ...newResults];
-        });
-        // setpage(page + 1);
-        setpage((prev) => prev + 1);
+        setTrending((prev) => [...prev, ...data.results]);
+        // setTrending((prev) => {
+        //   const newResults = data.results.filter(
+        //     (item) => !prev.some((p) => p.id === item.id)
+        //   );
+        //   return [...prev, ...newResults];
+        // });
+        setpage(page + 1);
+        // setpage((prev) => prev + 1);
       } else {
         sethasMore(false);
       }
@@ -93,7 +93,7 @@ const Trending = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full ">
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}

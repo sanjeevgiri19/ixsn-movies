@@ -24,6 +24,8 @@ const Header = ({ data }) => {
       className="h-screen  w-[96%] flex rounded justify-end flex-col px-6 py-10 mx-auto relative top-3  md:w-[93%] lg:w-[98%]"
     >
       <TopNav />
+
+      
       <Link to={`/${data.media_type}/details/${data.id}`} className="p-2  mb-2">
         <h1 className="text-xl md:text-3xl lg:text-4xl font-medium text-white">
           {data.name || data.title || data.original_name || data.original_title}
