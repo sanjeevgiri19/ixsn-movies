@@ -95,7 +95,7 @@ const TopNav = () => {
         )}
       </div>
 
-      {/* Right Section: Auth
+       {/* Right Section: Auth */}
       <div className="flex items-center gap-4 ml-4">
         {isAuthenticated ? (
           <div className="flex items-center gap-2">
@@ -119,7 +119,7 @@ const TopNav = () => {
             Login
           </button>
         )}
-      </div> */}
+      </div> 
 
       {/* Search Results Dropdown */}
       {query.length > 0 && (
