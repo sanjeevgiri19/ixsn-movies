@@ -41,7 +41,6 @@ const Peoples = () => {
       console.log("Error", error);
     }
   };
-  // console.log(person);
 
   const refreshPerson = () => {
     if (person.length === 0) {
@@ -75,7 +74,6 @@ const Peoples = () => {
         <InfiniteScroll
           dataLength={person.length}
           next={getPerson}
-          // loader={<Loading />}
           loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}

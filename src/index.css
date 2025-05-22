@@ -63,10 +63,6 @@ body {
   }
 }
 
-/* App.css or index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .pulse {
  animation: pulse-animation 2s infinite cubic-bezier(0.4, 0, 0.6, 1);

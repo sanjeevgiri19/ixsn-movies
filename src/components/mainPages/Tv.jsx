@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import TopNav from "./templatess/TopNav";
-// import Dropdown from "./templatess/Dropdown";
 import { useNavigate } from "react-router-dom";
-// import Cards from "./templatess/Cards";
-// import axios from "../utils/axios";
 import axios from '../../utils/axios'
 import InfiniteScroll from "react-infinite-scroll-component";
-// import Loading from "./skeleton/Loading";
-// import CardSkeleton from "./skeleton/CardSkeleton";
 import Dropdown from "../templatess/Dropdown";
 import Cards from "../templatess/Cards";
 import CardSkeleton from "../skeleton/CardSkeleton";
-// import axios from "axios";
 
 const Tv = () => {
   const navigate = useNavigate();
   const [category, setcategory] = useState("popular");
-  // const [duration, setduration] = useState("day");
   const [tv, setTv] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | TV";
   useEffect(() => {
     document.title = "ixsn | Tv";
   }, []);
@@ -42,7 +33,6 @@ const Tv = () => {
       } else {
         sethasMore(false);
       }
-      // console.log(data);
     } catch (error) {
       console.log("Error", error);
     }
@@ -50,7 +40,7 @@ const Tv = () => {
   // console.log(tv);
 
   const handleCategoryChange = (selectedCategory) => {
-    setcategory(selectedCategory); // Update the category state
+    setcategory(selectedCategory); 
   };
 
   const refreshTv = () => {
@@ -81,7 +71,6 @@ const Tv = () => {
             ({category.replace(/_/g, " ").toUpperCase()})
           </span>
         </h1>
-        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}
@@ -95,7 +84,6 @@ const Tv = () => {
         <InfiniteScroll
           dataLength={tv.length}
           next={getTv}
-          // loader={<Loading />}
           loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}

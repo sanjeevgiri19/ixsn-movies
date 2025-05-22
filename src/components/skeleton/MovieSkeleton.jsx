@@ -4,7 +4,6 @@ const MovieDetailSkeleton = () => {
   return (
     <div className="bg-gray-900 text-white h-full w-full font-sans">
       <div className="container mx-auto px-4 py-8">
-        {/* Header Skeleton */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
             <div className="mr-4 h-6 w-6 bg-gray-300 rounded-full animate-pulse"></div>
@@ -12,14 +11,11 @@ const MovieDetailSkeleton = () => {
           </div>
         </div>
 
-        {/* Movie Details Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {/* Movie Poster Skeleton */}
           <div className="md:col-span-1">
             <div className="w-64 h-72 bg-gray-300 animate-pulse rounded-md shadow-md"></div>
           </div>
 
-          {/* Movie Information Skeleton */}
           <div className="md:col-span-2">
             <div className="h-8 w-3/4 bg-gray-300 animate-pulse mb-2 rounded-md"></div>
             <div className="h-6 w-1/2 bg-gray-300 animate-pulse mb-4 rounded-md"></div>
@@ -43,7 +39,6 @@ const MovieDetailSkeleton = () => {
           </div>
         </div>
 
-        {/* Recommendations Skeleton */}
         <div className="mt-12">
           <div className="h-10 w-1/4 bg-gray-300 animate-pulse mb-4 rounded-md"></div>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">

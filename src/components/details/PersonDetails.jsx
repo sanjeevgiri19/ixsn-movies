@@ -6,7 +6,6 @@ import Loading from "../skeleton/Loading";
 import NoPoster from "/noImagePoster.webp";
 import CardSkeleton from "../skeleton/CardSkeleton";
 import Modal from "../Modal";
-// import Modal from "../components/Modal"; // Assuming you have a Modal component
 
 const PersonDetails = () => {
   const { info } = useSelector((state) => state.person);

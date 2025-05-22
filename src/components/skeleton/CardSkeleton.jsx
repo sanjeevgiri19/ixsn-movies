@@ -1,4 +1,4 @@
-// // Loader.js
+// Loader.js
 // import React from "react";
 
 // const Loader = () => {
@@ -14,7 +14,7 @@
 // };
 
 // export default Loader;
-// // 
+// 
 
 import React from 'react'
 import { BounceLoader } from "react-spinners";

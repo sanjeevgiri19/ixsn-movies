@@ -9,21 +9,9 @@ import MovieDetailSkeleton from "../skeleton/MovieSkeleton";
 import CardSkeleton from "../skeleton/CardSkeleton";
 
 const MovieDetails = () => {
-  // const { info } = useSelector((state) => state.movie);
 
-  // const { info } = useSelector((state) => state.movie);
   const { info } = useSelector((state) => state.movie);
-  // console.log(info.detail.title);
-  // console.log(info);
-
-  //  const { detail, recommendations, similar, videos } = info;
-  //  console.log(info.detail);
-
-  // console.log(info);
-
-  // const {pathname} = useParams()
   const pathname = location.pathname;
-
   // console.log(pathname);
 
   const navigate = useNavigate();
@@ -47,7 +35,6 @@ const MovieDetails = () => {
       }}
       className="relative w-screen min-h-screen text-zinc-50 p-4"
     >
-      {/* Navigation Links */}
       <div className="flex gap-4 text-lg bg-zinc-500/20 w-40 p-2 rounded-md mb-2">
         <Link
           onClick={() => navigate(-1)}
@@ -148,7 +135,10 @@ const MovieDetails = () => {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">Recommendations</h2>
+        {info.recommendations  && (
+          <h2 className="text-xl font-semibold mb-4">Recommendations</h2>
+        ) }
+
         <div className="overflow-x-auto">
           {info.recommendations ? (
             <HorizontalContent data={info.recommendations} />

@@ -10,22 +10,10 @@ import CardSkeleton from "../skeleton/CardSkeleton";
 
 const TvDetails = () => {
 
-  // const { info } = useSelector((state) => state.tv);
   const { info } = useSelector((state) => state.tv);
-
-  // console.log(info.detail.title);
   // console.log(info);
 
-  //  const { detail, recommendations, similar, videos } = info;
-  //  console.log(info.detail);
-
-  // console.log(info);
-
-  // const {pathname} = useParams()
   const pathname = location.pathname;
-
-  // console.log(pathname);
-
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -47,7 +35,6 @@ const TvDetails = () => {
       }}
       className="relative w-screen min-h-screen text-zinc-50 p-4"
     >
-      {/* Navigation Links */}
       <div className="flex gap-3 text-lg bg-zinc-500/20 w-40 p-2 rounded-md mb-2">
         <Link
           onClick={() => navigate(-1)}
@@ -70,9 +57,7 @@ const TvDetails = () => {
         </a>
       </div>
 
-      {/* Responsive Layout */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-        {/* Poster - Centered on small screens, left on larger screens */}
         <div className="w-[70%] md:w-[23%] lg:w-[18%] flex justify-center md:justify-start">
           <img
             className="rounded-md w-[90%] max-w-xs md:max-w-none h-auto p-2 shadow-lg"
@@ -83,7 +68,6 @@ const TvDetails = () => {
           />
         </div>
 
-        {/* TV Details */}
         <div className="w-full md:w-[70%] p-2 flex flex-col gap-2">
           <div className="flex md:flex-row md:items-center gap-2">
             <h2 className="text-2xl font-bold">
@@ -145,7 +129,6 @@ const TvDetails = () => {
         </div>
       </div>
 
-      {/* Seasons */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Seasons</h2>
         <div className="flex gap-4 overflow-x-auto">
@@ -182,7 +165,6 @@ const TvDetails = () => {
         </div>
       </div>
 
-      {/* Recommendations */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Recommendations</h2>
         <div className="overflow-x-auto">

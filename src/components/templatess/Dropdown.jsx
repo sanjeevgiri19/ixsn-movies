@@ -4,9 +4,6 @@ const Dropdown = ({ options, onselect, title  }) => {
   const [isOpen, setIsOpen] = useState(false); 
   const [selectedOption, setSelectedOption] = useState(null); 
 
-  // const options = ["Tv", "movies", "............", "....."];
-
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };

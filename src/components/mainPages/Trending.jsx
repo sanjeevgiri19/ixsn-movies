@@ -15,7 +15,6 @@ const Trending = () => {
   const [trending, setTrending] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | Trending"
   useEffect(() => {
     document.title = "ixsn | Trending";
   }, []);
@@ -39,15 +38,13 @@ const Trending = () => {
       } else {
         sethasMore(false);
       }
-      // console.log(data.results);
     } catch (error) {
       console.log("Error", error);
     }
   };
-  // console.log(trending.results.media_type);
 
   const handleCategoryChange = (selectedCategory) => {
-    setcategory(selectedCategory); // Update the category state
+    setcategory(selectedCategory); 
   };
   const handleDurationChange = (selectedDuration) => {
     setduration(selectedDuration);
@@ -78,7 +75,6 @@ const Trending = () => {
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Trending
         </h1>
-        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-2">
           <Dropdown
             title={"Category"}
@@ -97,7 +93,6 @@ const Trending = () => {
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}
-          // loader={<Loading />}
           loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}

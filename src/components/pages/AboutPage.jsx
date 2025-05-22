@@ -100,7 +100,7 @@ const AboutPage = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-zinc-300 mb-2">
-                John Doe
+                Himal doe
               </h3>
               <p className="text-gray-300">Founder & CEO</p>
             </div>
@@ -112,7 +112,7 @@ const AboutPage = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-zinc-200 mb-2">
-                Jane Smith
+                Jane  Sharma
               </h3>
               <p className="text-gray-300">Lead Developer</p>
             </div>
@@ -124,7 +124,7 @@ const AboutPage = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
               />
               <h3 className="text-xl font-semibold text-zinc-200 mb-2">
-                Alice Johnson
+                Alice Karki
               </h3>
               <p className="text-gray-300">Content Curator</p>
             </div>

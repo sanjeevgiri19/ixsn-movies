@@ -15,7 +15,6 @@ const Popular = () => {
   const [popular, setPopular] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | Popular";
   useEffect(() => {
     document.title = "ixsn | Popular";
   }, []);
@@ -32,12 +31,10 @@ const Popular = () => {
       } else {
         sethasMore(false);
       }
-      // console.log(data);
     } catch (error) {
       console.log("Error", error);
     }
   };
-  // console.log(popular);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
@@ -68,7 +65,6 @@ const Popular = () => {
           <i className="ri-arrow-left-line mr-2 text-xl"></i>
           Popular
         </h1>
-        {/* <TopNav /> */}
         <div className="flex w-[22%] pr-8">
           <Dropdown
             title={"Category"}
@@ -82,7 +78,6 @@ const Popular = () => {
         <InfiniteScroll
           dataLength={popular.length}
           next={getPopular}
-          // loader={<Loading />}
           loader={<CardSkeleton />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}

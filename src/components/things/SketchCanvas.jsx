@@ -62,7 +62,6 @@ const App = () => {
     setEraserWidth(Number(e.target.value));
   };
 
-  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -74,7 +73,7 @@ const App = () => {
           border: "2px solid gray",
           borderRadius: "0.2rem",
           width: "100%",
-          maxWidth: "800px", //large
+          maxWidth: "800px",
           height: "70vh",
           marginBottom: "2rem",
         }}

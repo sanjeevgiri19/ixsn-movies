@@ -16,7 +16,7 @@ const Movies = () => {
   const [movie, setMovie] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
-  // document.title = "ixsn | Movies";
+
   useEffect(() => {
     document.title = "ixsn | Movies";
   }, []);
@@ -25,7 +25,6 @@ const Movies = () => {
     try {
       const { data } = await axios.get(`/movie/${category}?page=${page}`);
 
-      // setTrending(data.results);
       if (data.results.length > 0) {
         // setMovie((prev) => [...prev, ...data.results]);
         setMovie((prev) => {
@@ -38,12 +37,10 @@ const Movies = () => {
       } else {
         sethasMore(false);
       }
-      // console.log(data);
     } catch (error) {
       console.log("Error", error);
     }
   };
-  // console.log(movie);
 
   const handleCategoryChange = (selectedCategory) => {
     setcategory(selectedCategory); // Update the category state
@@ -77,7 +74,7 @@ const Movies = () => {
             ({category.replace(/_/g, " ")})
           </span>
         </h1>
-        {/* <TopNav /> */}
+
         <div className="flex w-[26%] pr-2">
           <Dropdown
             title={"Category"}
@@ -93,7 +90,6 @@ const Movies = () => {
           next={getMovies}
           // loader={<Loading />}
           loader={<CardSkeleton />}
-          // loader={<Loader />}
           endMessage={<h1>You have reached to end, chalo ghar jao aab !!</h1>}
           hasMore={hasMore}
         >

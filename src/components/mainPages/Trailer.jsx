@@ -12,7 +12,6 @@ const Trailer = () => {
   const category = pathname.includes("movie") ? "movie" : "tv";
   const ytvideo = useSelector((state) => state[category]?.info?.videos);
 
-  // Loading state
   if (!ytvideo) {
     return (
       <div className="flex items-center justify-center h-screen bg-purple-700/70 text-white">
@@ -21,7 +20,6 @@ const Trailer = () => {
     );
   }
 
-  // No trailer available
   if (!ytvideo.key) {
     return <NotFound />;
   }

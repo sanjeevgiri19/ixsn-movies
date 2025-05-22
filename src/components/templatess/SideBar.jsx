@@ -8,7 +8,6 @@ const SideBar = ({ onClose }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Function to handle screen resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1200);
@@ -47,7 +46,6 @@ const SideBar = ({ onClose }) => {
         ></i> */}
           </div>
 
-          {/* Extended Menu */}
           {/* {isExtended && div} */}
           <div>
             <h1 className="text-white  font-medium lg:text-lg md:text-lg text-md py-2 sm:py-5">

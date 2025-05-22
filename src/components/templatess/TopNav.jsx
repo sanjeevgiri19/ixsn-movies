@@ -56,9 +56,7 @@ const TopNav = () => {
 
   return (
     <div className="text-white flex w-full sm:w-5/6 top-1 lg:left-52 sm:left-9 z-50 absolute items-center justify-between px-4 sm:px-0">
-      {/* Left Section: Search */}
       <div className="flex items-center flex-grow">
-        {/* Mobile Menu Toggle */}
         {isMobile && (
           <button
             onClick={toggleModal}
@@ -70,13 +68,11 @@ const TopNav = () => {
           </button>
         )}
 
-        {/* Search Icon */}
         <i
           className="ri-search-line mr-3 lg:text-xl md:text-xl sm:text-lg"
           aria-label="Search"
         ></i>
 
-        {/* Search Input */}
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -85,7 +81,6 @@ const TopNav = () => {
           placeholder="Search Movies, TV's, and more..."
         />
 
-        {/* Clear Search Icon */}
         {query.length > 0 && (
           <i
             onClick={() => setQuery("")}
@@ -95,7 +90,6 @@ const TopNav = () => {
         )}
       </div>
 
-       {/* Right Section: Auth */}
       <div className="flex items-center gap-4 ml-4">
         {isAuthenticated ? (
           <div className="flex items-center gap-2">
@@ -121,7 +115,6 @@ const TopNav = () => {
         )}
       </div> 
 
-      {/* Search Results Dropdown */}
       {query.length > 0 && (
         <div className="bg-zinc-400/50 z-50 absolute max-h-[44vh] top-[110%] overflow-auto rounded-md w-[55%] md:w-[54%] lg:w-[56%] left-24 sm:left-16">
           {isSearchLoading ? (
@@ -165,7 +158,6 @@ const TopNav = () => {
         </div>
       )}
 
-      {/* Mobile Modal */}
       {isMobile && isModalOpen && (
         <div className="fixed inset-0 w-64 h-[267px] top-[55px] left-[35px] bg-zinc-900/80 z-50 p-4">
           <nav className="flex flex-col text-zinc-300 ">
