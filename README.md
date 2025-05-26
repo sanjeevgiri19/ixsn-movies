@@ -1,2 +1,1 @@
-
-todos: bookmarks, ai recommendation, some fun activities such as quiz about movies, tv's or persons, and so on ...
+Movie and Tv browsing site made with React.js and Redux Toolkit
